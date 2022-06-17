@@ -1,0 +1,32 @@
+{
+  "name": "esbuild-plugin-pino",
+  "version": "1.0.0",
+  "description": "A pino plugin for esbuild",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/davipon/esbuild-plugin-pino",
+  "bugs": "https://github.com/davipon/esbuild-plugin-pino/issues",
+  "scripts": {
+    "build": "tsc",
+    "test": "rm -rf dist && tsc && vitest run"
+  },
+  "keywords": [
+    "pino",
+    "esbuild",
+    "esbuild-plugin",
+    "pino-plugin"
+  ],
+  "author": "David Peng <davipondev@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "esbuild": "^0.14.45",
+    "execa": "^6.1.0",
+    "pino": "^8.0.0",
+    "pino-loki": "^2.0.0",
+    "pino-pretty": "^8.0.0",
+    "thread-stream": "^1.0.0",
+    "typescript": "^4.7.3",
+    "vitest": "^0.15.1"
+  }
+}
