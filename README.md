@@ -1,2 +1,61 @@
 # esbuild-plugin-pino
-A pino plugin for esbuild
+
+ [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+ 
+An esbuild plugin to generate extra pino files for bundling
+
+## Installation
+
+```bash
+npm install esbuild-plugin-pino
+```
+
+## Description
+
+This plugin allows to use of pino v7 with esbuild generated bundle files.
+
+Note that, due to pino architecture (based on Node.js' Worker Threads), it is not possible to make it work without generating extra files.
+
+This means that when using this plugin the following list of files will be generated at the root of your dist folder:
+
+- `thread-stream.js`
+- `pino-worker.js`
+- `pino-pipeline-worker.js`
+- `pino-file.js`
+
+A file for each transport you specify in the plugin constructor's `transports` option. (see below)
+Each of the additional file is a bundle and therefore does not contain any external dependency, but it is needed to use pino and it must be included in the deployment.
+
+> Reference: [Pino Bundling](https://github.com/pinojs/pino/blob/master/docs/bundling.md)
+> Inspired by [pino-esbuild.js](https://gist.github.com/ShogunPanda/752cce88659a09bff827ef8d2ecf8c80#gistcomment-4199018)
+
+## Usage
+
+Simply include the plugin in your esbuild build script. Make sure you provide the plugin a list of all the pino transports you use via the `transports` option (`pino/file` is always included so no need to specify it).
+
+```js
+// General usage
+const { build } = require('esbuild')
+const esbuildPluginPino = require('esbuild-plugin-pino')
+
+build({
+  entryPoints: ['src/index.ts'],
+  outdir: 'dist',
+  plugins: [esbuildPluginPino({ transports: ['pino-pretty'] })],
+}).catch(() => process.exit(1))
+```
+
+```js
+// Multiple entryPoints & pino transports
+const { build } = require('esbuild')
+const esbuildPluginPino = require('esbuild-plugin-pino')
+
+build({
+  entryPoints: {
+    first: './first.js',
+    'abc/cde/second': './second.js'
+  },
+  outdir: 'dist',
+  plugins: [esbuildPluginPino({ transports: ['pino-pretty', 'pino-loki'] })],
+}).catch(() => process.exit(1))
+```

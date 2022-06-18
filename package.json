@@ -1,7 +1,7 @@
 {
   "name": "esbuild-plugin-pino",
   "version": "1.0.0",
-  "description": "A pino plugin for esbuild",
+  "description": "An esbuild plugin to generate extra pino files for bundling",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/davipon/esbuild-plugin-pino",
