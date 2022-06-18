@@ -53,8 +53,8 @@ jobs:
         id: tests
         run: pnpm test
 
-      - name: Build package and publish to NPM
+      - name: Publish to NPM
         if: github.event_name == 'release' && steps.tests.outcome == 'success'
-        run: pnpm publish
+        run: pnpm publish --no-git-checks
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
