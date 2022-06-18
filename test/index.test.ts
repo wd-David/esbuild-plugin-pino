@@ -114,6 +114,6 @@ describe('Test esbuildPluginPino', () => {
     const { stdout } = await execa(process.argv[0], [
       resolve(distFolder, thirdFile as string)
     ])
-    expect(stdout).toEqual(expect.stringMatching(/ERROR: This is third!/))
+    expect(stdout).toEqual(expect.stringMatching(/This is third/))
   })
 })
