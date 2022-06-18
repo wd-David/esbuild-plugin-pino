@@ -1,4 +1,4 @@
-const pino = require('pino');
+const pino = require('pino')
 
 const logger = pino(
   pino.transport({
