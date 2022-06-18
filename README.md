@@ -1,7 +1,9 @@
 # esbuild-plugin-pino
 
- [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
- 
+[![NPM version](https://img.shields.io/npm/v/esbuild-plugin-pino?logo=NPM)](https://www.npmjs.com/package/esbuild-plugin-pino)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+![CI](https://github.com/davipon/esbuild-plugin-pino/actions/workflows/ci.yml/badge.svg)
+
 An esbuild plugin to generate extra pino files for bundling
 
 ## Installation
