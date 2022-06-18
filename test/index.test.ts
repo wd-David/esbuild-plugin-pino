@@ -1,33 +1,27 @@
 import { describe, it, expect, afterEach } from 'vitest'
 import { readFileSync, readdirSync, rmSync } from 'fs'
 import { resolve } from 'path'
-import { build } from 'esbuild'
 import { execa } from 'execa'
-import esbuildPluginPino from '../dist'
+import { execSync } from 'child_process'
+
+const buildJsScriptPath = resolve(__dirname, 'buildScripts/buildJS.js')
+const buildTsScriptPath = resolve(__dirname, 'buildScripts/buildTS.ts')
+const distFolder = 'test/dist'
 
 const functionDeclaration = `function pinoBundlerAbsolutePath(p)`
 const overrides = `globalThis.__bundlerPathsOverrides = globalThis.__bundlerPathsOverrides ? { ...globalThis.__bundlerPathsOverrides, "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.js"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.js"), "pino-pipeline-worker": pinoBundlerAbsolutePath("./pino-pipeline-worker.js"), "pino/file": pinoBundlerAbsolutePath("./pino-file.js") } : { "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.js"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.js"), "pino-pipeline-worker": pinoBundlerAbsolutePath("./pino-pipeline-worker.js"), "pino/file": pinoBundlerAbsolutePath("./pino-file.js") };`
 
 describe('Test esbuildPluginPino', () => {
-  const distFolder = 'test/dist'
   afterEach(() => {
     // Remove dist folder
     rmSync(distFolder, { recursive: true, force: true })
   })
   it('Two entrypoints with nested file', async () => {
     expect.assertions(13)
-    await build({
-      entryPoints: {
-        first: './test/fixtures/first.js',
-        'abc/cde/second': './test/fixtures/second.js'
-      },
-      logLevel: 'info',
-      outdir: distFolder,
-      bundle: true,
-      platform: 'node',
-      format: 'cjs',
-      plugins: [esbuildPluginPino({ transports: ['pino-pretty'] })]
-    }).catch(() => process.exit(1))
+
+    // Execute build script
+    // node test/buildScripts/buildJS.js
+    execSync(`node ${resolve(buildJsScriptPath)}`)
 
     // Find all files in the folder
     const rootFiles = readdirSync(distFolder).filter((e) => e.endsWith('.js'))
@@ -55,7 +49,10 @@ describe('Test esbuildPluginPino', () => {
     expect(pinoPretty).toBeTruthy()
 
     // Check that the root file has the right path to pino-file
-    const firstContent = readFileSync(resolve(distFolder, firstFile as string), 'utf-8')
+    const firstContent = readFileSync(
+      resolve(distFolder, firstFile as string),
+      'utf-8'
+    )
     expect(firstContent.includes(functionDeclaration)).toBeTruthy()
     expect(firstContent.includes(overrides)).toBeTruthy()
 
@@ -79,15 +76,10 @@ describe('Test esbuildPluginPino', () => {
   })
   it('Multiple pino transports with TypeScript', async () => {
     expect.assertions(10)
-    await build({
-      entryPoints: ['./test/fixtures/third.ts'],
-      logLevel: 'info',
-      outdir: distFolder,
-      bundle: true,
-      platform: 'node',
-      format: 'cjs',
-      plugins: [esbuildPluginPino({ transports: ['pino-loki', 'pino-pretty'] })]
-    }).catch(() => process.exit(1))
+
+    // Execute build script
+    // npx tsx test/buildScripts/buildTS.ts
+    execSync(`npx tsx ${resolve(buildTsScriptPath)}`)
 
     // Find all files in the folder
     const rootFiles = readdirSync(distFolder).filter((e) => e.endsWith('.js'))
@@ -111,7 +103,10 @@ describe('Test esbuildPluginPino', () => {
     expect(pinoLoki).toBeTruthy()
 
     // Check that the root file has the right path to pino-file
-    const thirdContent = readFileSync(resolve(distFolder, thirdFile as string), 'utf-8')
+    const thirdContent = readFileSync(
+      resolve(distFolder, thirdFile as string),
+      'utf-8'
+    )
     expect(thirdContent.includes(functionDeclaration)).toBeTruthy()
     expect(thirdContent.includes(overrides)).toBeTruthy()
 
