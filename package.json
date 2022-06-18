@@ -13,7 +13,8 @@
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint .",
     "cz": "cz",
-    "release": "standard-version --no-verify"
+    "release": "standard-version --no-verify",
+    "release:patch": "standard-version --no-verify --release-as patch"
   },
   "keywords": [
     "pino",
@@ -23,6 +24,9 @@
   ],
   "author": "David Peng <davipondev@gmail.com>",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
