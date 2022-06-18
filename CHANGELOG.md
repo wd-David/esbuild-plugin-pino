@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/davipon/esbuild-plugin-pino/compare/v1.1.1...v1.1.2) (2022-06-18)
+
+
+### ✅ Testing
+
+* fix last expect.stringMatching ([ab93534](https://github.com/davipon/esbuild-plugin-pino/commit/ab93534301e11a1191c70f091d0fe663a7337a14))
+
 ### [1.1.1](https://github.com/davipon/esbuild-plugin-pino/compare/v1.1.0...v1.1.1) (2022-06-18)
 
 
