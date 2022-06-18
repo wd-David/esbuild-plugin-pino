@@ -20,7 +20,8 @@
     "pino",
     "esbuild",
     "esbuild-plugin",
-    "pino-plugin"
+    "pino-transport",
+    "bundling"
   ],
   "author": "David Peng <davipondev@gmail.com>",
   "license": "MIT",
