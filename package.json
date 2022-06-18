@@ -10,8 +10,8 @@
     "prepare": "husky install",
     "build": "tsc",
     "test": "rm -rf dist && tsc && vitest run",
-    "format": "prettier --write 'src/**/*.{js,ts,json,md}'",
-    "lint": "prettier --check 'src/**/*.{js,ts,json,md}' && eslint --ignore-path .gitignore .",
+    "format": "prettier --write .",
+    "lint": "prettier --check . && eslint .",
     "cz": "cz",
     "release": "standard-version --no-verify"
   },
