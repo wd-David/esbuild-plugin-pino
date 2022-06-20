@@ -32,9 +32,6 @@ This means that when using this plugin the following list of files will be gener
 A file for each transport you specify in the plugin constructor's `transports` option. (see below)
 Each of the additional file is a bundle and therefore does not contain any external dependency, but it is needed to use pino and it must be included in the deployment.
 
-> Reference: [Pino Bundling](https://github.com/pinojs/pino/blob/master/docs/bundling.md)
-> Inspired by [pino-esbuild.js](https://gist.github.com/ShogunPanda/752cce88659a09bff827ef8d2ecf8c80#gistcomment-4199018)
-
 ## Usage
 
 Simply include the plugin in your esbuild build script. Make sure you provide the plugin a list of all the pino transports you use via the `transports` option (`pino/file` is always included so no need to specify it).
@@ -65,3 +62,8 @@ build({
   plugins: [esbuildPluginPino({ transports: ['pino-pretty', 'pino-loki'] })],
 }).catch(() => process.exit(1))
 ```
+
+## Credits
+
+- Reference: [Pino Bundling](https://github.com/pinojs/pino/blob/master/docs/bundling.md)
+- Inspired by [pino-esbuild.js](https://gist.github.com/ShogunPanda/752cce88659a09bff827ef8d2ecf8c80#gistcomment-4199018) and kudos to [@ShogunPanda](https://github.com/ShogunPanda) & [@scorsi](https://github.com/scorsi)
