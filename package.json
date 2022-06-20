@@ -15,7 +15,7 @@
   "scripts": {
     "prepare": "husky install",
     "build": "pkgroll",
-    "test": "rm -rf dist && npx pkgroll && vitest run",
+    "test": "rm -rf dist && pnpm build && vitest run",
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint .",
     "cz": "cz",
