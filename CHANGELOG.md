@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.7](https://github.com/davipon/esbuild-plugin-pino/compare/v1.1.6...v1.1.7) (2022-06-20)
+
+
+### 🚚 Chores
+
+* **commitlint:** rename config file ([58ef953](https://github.com/davipon/esbuild-plugin-pino/commit/58ef953cf2af45750db8cbbe76af0548644f9c92))
+* **deps:** bump pnpm/action-setup from 2.0.1 to 2.2.2 ([ebcfd0d](https://github.com/davipon/esbuild-plugin-pino/commit/ebcfd0dda4526e38d34d95f6c16d09814e3c9bc2))
+
+
+### 📝 Documentation
+
+* add dependencies and license badges ([452035c](https://github.com/davipon/esbuild-plugin-pino/commit/452035c61256cb00f16a31c42879121c052504a2))
+* add package size badge ([f0e68ca](https://github.com/davipon/esbuild-plugin-pino/commit/f0e68ca0a8bea5b63a6cfa908f09eba60f9be684))
+* **readme.md:** add Credits section ([fd512d0](https://github.com/davipon/esbuild-plugin-pino/commit/fd512d08c90a643d66b1f19091898c8911e58d9f))
+* update keywords in package.json ([b4ab9b3](https://github.com/davipon/esbuild-plugin-pino/commit/b4ab9b328b7fad6dd3f35fcc66e6c1985fa8a636))
+
+
+### 🔨 Build System
+
+* **bundling:** replace tsc with pkgroll for bundling ([1d18059](https://github.com/davipon/esbuild-plugin-pino/commit/1d18059a836c55c2f6150afc6314652351c891fe))
+
 ### [1.1.6](https://github.com/davipon/esbuild-plugin-pino/compare/v1.1.5...v1.1.6) (2022-06-18)
 
 
