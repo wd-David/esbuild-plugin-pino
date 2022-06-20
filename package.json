@@ -3,13 +3,19 @@
   "version": "1.1.6",
   "description": "An esbuild plugin to generate extra pino files for bundling",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./dist/index.mjs",
+    "types": "./dist/index.d.ts"
+  },
   "repository": "https://github.com/davipon/esbuild-plugin-pino",
   "bugs": "https://github.com/davipon/esbuild-plugin-pino/issues",
   "scripts": {
     "prepare": "husky install",
-    "build": "tsc",
-    "test": "rm -rf dist && tsc && vitest run",
+    "build": "pkgroll",
+    "test": "rm -rf dist && pkgroll && vitest run",
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint .",
     "cz": "cz",

@@ -33,7 +33,7 @@ import type { Plugin } from 'esbuild'
  *   }).catch(() => process.exit(1))
  * ```
  */
-export = function esbuildPluginPino({
+export default function esbuildPluginPino({
   transports
 }: {
   transports: string[]
