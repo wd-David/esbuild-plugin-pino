@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.8](https://github.com/davipon/esbuild-plugin-pino/compare/v1.1.7...v1.1.8) (2022-06-20)
+
+
+### 🐛 Bug Fixes
+
+* fix test script - add npx before pkgroll ([7a73ace](https://github.com/davipon/esbuild-plugin-pino/commit/7a73ace4e239ab13195430cff1c2e983ebf0149b))
+* **package.json:** fix "test" script ([5214a52](https://github.com/davipon/esbuild-plugin-pino/commit/5214a52cd69307afbad942aaaa32052df8298ed3))
+
 ### [1.1.7](https://github.com/davipon/esbuild-plugin-pino/compare/v1.1.6...v1.1.7) (2022-06-20)
 
 
