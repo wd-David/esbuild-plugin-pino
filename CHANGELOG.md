@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.9](https://github.com/davipon/esbuild-plugin-pino/compare/v1.1.8...v1.1.9) (2022-06-20)
+
+
+### 🐛 Bug Fixes
+
+* **dep:** fix deps ([e8c13af](https://github.com/davipon/esbuild-plugin-pino/commit/e8c13af5ebb0eb0be43ae5e6e49fe97756c78372))
+
 ### [1.1.8](https://github.com/davipon/esbuild-plugin-pino/compare/v1.1.7...v1.1.8) (2022-06-20)
 
 
