@@ -1,4 +1,4 @@
-import { dirname, sep, join, resolve } from 'node:path'
+import path from 'node:path'
 import { readFile } from 'node:fs/promises'
 import type { Plugin } from 'esbuild'
 
@@ -41,29 +41,34 @@ export default function esbuildPluginPino({
   return {
     name: 'pino',
     setup(currentBuild) {
-      const pino = dirname(require.resolve('pino'))
-      const threadStream = dirname(require.resolve('thread-stream'))
+      const pino = path.dirname(require.resolve('pino'))
+      const threadStream = path.dirname(require.resolve('thread-stream'))
 
       let entrypoints = currentBuild.initialOptions.entryPoints
       if (Array.isArray(entrypoints)) {
+        const separator = entrypoints[0].includes('\\')
+          ? path.win32.sep
+          : path.posix.sep
         let outbase = currentBuild.initialOptions.outbase
         if (!outbase) {
-          const hierarchy = entrypoints[0].split(sep)
+          const hierarchy = entrypoints[0].split(separator)
           let i = 0
           outbase = ''
           let nextOutbase = ''
           do {
             outbase = nextOutbase
             i++
-            nextOutbase = hierarchy.slice(0, i).join(sep)
+            nextOutbase = hierarchy.slice(0, i).join(separator)
           } while (
-            entrypoints.every((e) => e.startsWith(`${nextOutbase}${sep}`))
+            entrypoints.every((e) => e.startsWith(`${nextOutbase}${separator}`))
           )
         }
         const newEntrypoints: Record<string, string> = {}
         for (const entrypoint of entrypoints) {
           const destination = (
-            outbase ? entrypoint.replace(`${outbase}${sep}`, '') : entrypoint
+            outbase
+              ? entrypoint.replace(`${outbase}${separator}`, '')
+              : entrypoint
           ).replace(/.(js|ts)$/, '')
           newEntrypoints[destination] = entrypoint
         }
@@ -71,10 +76,10 @@ export default function esbuildPluginPino({
       }
 
       const customEntrypoints = {
-        'thread-stream-worker': join(threadStream, 'lib/worker.js'),
-        'pino-worker': join(pino, 'lib/worker.js'),
-        'pino-pipeline-worker': join(pino, 'lib/worker-pipeline.js'),
-        'pino-file': join(pino, 'file.js')
+        'thread-stream-worker': path.join(threadStream, 'lib/worker.js'),
+        'pino-worker': path.join(pino, 'lib/worker.js'),
+        'pino-pipeline-worker': path.join(pino, 'lib/worker-pipeline.js'),
+        'pino-file': path.join(pino, 'file.js')
       }
       const transportsEntrypoints = Object.fromEntries(
         (transports || []).map((t) => [t, require.resolve(t)])
@@ -97,10 +102,12 @@ export default function esbuildPluginPino({
 
         const contents = await readFile(args.path, 'utf8')
 
-        const absoluteOutputPath = join(
-          resolve(process.cwd()),
-          currentBuild.initialOptions.outdir || 'dist'
-        ).replace(/\\/g, '/')
+        const absoluteOutputPath = path
+          .join(
+            path.resolve(process.cwd()),
+            currentBuild.initialOptions.outdir || 'dist'
+          )
+          .replace(/\\/g, '/')
 
         const functionDeclaration = `
           function pinoBundlerAbsolutePath(p) {

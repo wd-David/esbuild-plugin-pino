@@ -2,6 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "strictNullChecks": true,
+    "esModuleInterop": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "moduleResolution": "node",
