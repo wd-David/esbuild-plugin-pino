@@ -1,5 +1,5 @@
-import { dirname, sep, join, resolve } from 'path'
-import { readFile } from 'fs/promises'
+import { dirname, sep, join, resolve } from 'node:path'
+import { readFile } from 'node:fs/promises'
 import type { Plugin } from 'esbuild'
 
 /**
@@ -98,7 +98,7 @@ export default function esbuildPluginPino({
         const contents = await readFile(args.path, 'utf8')
 
         const absoluteOutputPath = join(
-          resolve('./'),
+          resolve(process.cwd()),
           currentBuild.initialOptions.outdir || 'dist'
         ).replace(/\\/g, '/')
 
