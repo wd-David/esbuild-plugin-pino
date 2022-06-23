@@ -100,7 +100,7 @@ export default function esbuildPluginPino({
         const absoluteOutputPath = join(
           resolve('./'),
           currentBuild.initialOptions.outdir || 'dist'
-        )
+        ).replace(/\\/g, '/')
 
         const functionDeclaration = `
           function pinoBundlerAbsolutePath(p) {
