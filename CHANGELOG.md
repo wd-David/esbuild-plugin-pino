@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.11](https://github.com/davipon/esbuild-plugin-pino/compare/v1.1.10...v1.1.11) (2022-06-23)
+
+
+### ♻️ Code Refactoring
+
+* replace "./" with process.cwd() in absoluteOutputPath ([a57590d](https://github.com/davipon/esbuild-plugin-pino/commit/a57590ded9fce830b599852cbc71eff880161f5e))
+
+
+### 🐛 Bug Fixes
+
+* **ci.yml:** fix paths-ignore ([1b16912](https://github.com/davipon/esbuild-plugin-pino/commit/1b16912df2e49d5c1b3cc598ef575c518d83bb72))
+* **index.ts:** replace backslashes with slashes in absoluteOutputPath ([fb9222a](https://github.com/davipon/esbuild-plugin-pino/commit/fb9222ae3c20cde69738e9e2a3b06263ef3739a8))
+* **index.ts:** replace backslashes with slashes in absoluteOutputPath ([3acc66b](https://github.com/davipon/esbuild-plugin-pino/commit/3acc66b8fa4c9ace0a89365f894ce0ab39687ac8))
+* **windows:** fix windows user use posix separator in entryPoints ([c16ceea](https://github.com/davipon/esbuild-plugin-pino/commit/c16ceea98cfc5b2c9cb94edf0fb5cd7ff56cd10a))
+
 ### [1.1.10](https://github.com/davipon/esbuild-plugin-pino/compare/v1.1.9...v1.1.10) (2022-06-20)
 
 ### [1.1.9](https://github.com/davipon/esbuild-plugin-pino/compare/v1.1.8...v1.1.9) (2022-06-20)
