@@ -16,11 +16,14 @@
     "prepare": "husky install",
     "dev": "nodemon",
     "build": "pkgroll",
+    "buildJS": "pkgroll && node test/buildScripts/buildJS.js",
+    "buildTS": "pkgroll && tsx test/buildScripts/buildTS.ts",
     "test": "rm -rf dist && pkgroll && vitest run",
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint .",
     "cz": "cz",
-    "release": "standard-version --no-verify",
+    "release:major": "standard-version --no-verify --release-as major",
+    "release:minor": "standard-version --no-verify --release-as minor",
     "release:patch": "standard-version --no-verify --release-as patch"
   },
   "keywords": [
