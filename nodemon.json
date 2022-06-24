@@ -1,0 +1,6 @@
+{
+  "watch": ["src", "test"],
+  "ignore": ["test/dist"],
+  "ext": "js, ts",
+  "exec": "npx pkgroll && npx vitest run"
+}
