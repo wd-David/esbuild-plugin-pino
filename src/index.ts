@@ -119,8 +119,10 @@ export default function esbuildPluginPino({
             }
           }
         `
-
-        const pinoOverrides = Object.keys(customEntrypoints)
+        const pinoOverrides = Object.keys({
+          ...customEntrypoints,
+          ...transportsEntrypoints
+        })
           .map(
             (id) =>
               `'${

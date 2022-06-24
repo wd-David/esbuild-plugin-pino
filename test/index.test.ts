@@ -9,7 +9,6 @@ const buildTsScriptPath = resolve(__dirname, 'buildScripts/buildTS.ts')
 const distFolder = 'test/dist'
 
 const functionDeclaration = `function pinoBundlerAbsolutePath(p)`
-const overrides = `globalThis.__bundlerPathsOverrides = globalThis.__bundlerPathsOverrides ? { ...globalThis.__bundlerPathsOverrides, "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.js"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.js"), "pino-pipeline-worker": pinoBundlerAbsolutePath("./pino-pipeline-worker.js"), "pino/file": pinoBundlerAbsolutePath("./pino-file.js") } : { "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.js"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.js"), "pino-pipeline-worker": pinoBundlerAbsolutePath("./pino-pipeline-worker.js"), "pino/file": pinoBundlerAbsolutePath("./pino-file.js") };`
 
 describe('Test esbuildPluginPino', () => {
   afterEach(() => {
@@ -53,6 +52,7 @@ describe('Test esbuildPluginPino', () => {
       resolve(distFolder, firstFile as string),
       'utf-8'
     )
+    const overrides = `globalThis.__bundlerPathsOverrides = globalThis.__bundlerPathsOverrides ? { ...globalThis.__bundlerPathsOverrides, "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.js"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.js"), "pino-pipeline-worker": pinoBundlerAbsolutePath("./pino-pipeline-worker.js"), "pino/file": pinoBundlerAbsolutePath("./pino-file.js"), "pino-pretty": pinoBundlerAbsolutePath("./pino-pretty.js") } : { "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.js"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.js"), "pino-pipeline-worker": pinoBundlerAbsolutePath("./pino-pipeline-worker.js"), "pino/file": pinoBundlerAbsolutePath("./pino-file.js"), "pino-pretty": pinoBundlerAbsolutePath("./pino-pretty.js") };`
     expect(firstContent.includes(functionDeclaration)).toBeTruthy()
     expect(firstContent.includes(overrides)).toBeTruthy()
 
@@ -107,6 +107,7 @@ describe('Test esbuildPluginPino', () => {
       resolve(distFolder, thirdFile as string),
       'utf-8'
     )
+    const overrides = `globalThis.__bundlerPathsOverrides = globalThis.__bundlerPathsOverrides ? { ...globalThis.__bundlerPathsOverrides, "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.js"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.js"), "pino-pipeline-worker": pinoBundlerAbsolutePath("./pino-pipeline-worker.js"), "pino/file": pinoBundlerAbsolutePath("./pino-file.js"), "pino-loki": pinoBundlerAbsolutePath("./pino-loki.js"), "pino-pretty": pinoBundlerAbsolutePath("./pino-pretty.js") } : { "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.js"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.js"), "pino-pipeline-worker": pinoBundlerAbsolutePath("./pino-pipeline-worker.js"), "pino/file": pinoBundlerAbsolutePath("./pino-file.js"), "pino-loki": pinoBundlerAbsolutePath("./pino-loki.js"), "pino-pretty": pinoBundlerAbsolutePath("./pino-pretty.js") };`
     expect(thirdContent.includes(functionDeclaration)).toBeTruthy()
     expect(thirdContent.includes(overrides)).toBeTruthy()
 
