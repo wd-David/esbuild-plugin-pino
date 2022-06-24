@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/davipon/esbuild-plugin-pino/compare/v1.1.11...v1.2.0) (2022-06-24)
+
+
+### 🚚 Chores
+
+* ignore "dist" in nodemon, add new scripts in package.json ([41b0f3a](https://github.com/davipon/esbuild-plugin-pino/commit/41b0f3a47946144a20243ee725f5b628ccc8068e))
+* **nodemon:** add nodemon for develop ([c90b4db](https://github.com/davipon/esbuild-plugin-pino/commit/c90b4dbf9a67a4c6aa0c65cef45a7a2e786d2ad7))
+
+
+### 🐛 Bug Fixes
+
+* **bundle:** add transportsEntrypoints to pinoOverrides ([661a009](https://github.com/davipon/esbuild-plugin-pino/commit/661a00963c7bdf5531095b1edc019fdc6315fba7))
+
 ### [1.1.11](https://github.com/davipon/esbuild-plugin-pino/compare/v1.1.10...v1.1.11) (2022-06-23)
 
 
