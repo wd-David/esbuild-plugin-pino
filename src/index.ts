@@ -102,17 +102,14 @@ export default function esbuildPluginPino({
 
         const contents = await readFile(args.path, 'utf8')
 
-        const absoluteOutputPath = path
-          .join(
-            path.resolve(process.cwd()),
-            currentBuild.initialOptions.outdir || 'dist'
-          )
-          .replace(/\\/g, '/')
+        const absoluteOutputPath = `\${process.cwd()}\${require('path').sep}${
+          currentBuild.initialOptions.outdir || 'dist'
+        }`
 
         const functionDeclaration = `
           function pinoBundlerAbsolutePath(p) {
             try {
-              return require('path').join('${absoluteOutputPath}', p)
+              return require('path').join(\`${absoluteOutputPath}\`.replace(/\\\\/g, '/'), p)
             } catch(e) {
               const f = new Function('p', 'return new URL(p, import.meta.url).pathname');
               return f(p)
