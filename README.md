@@ -63,6 +63,11 @@ build({
 }).catch(() => process.exit(1))
 ```
 
+## Deploy to production
+
+If you use `docker` or severless function like AWS Lambda, make sure to use the same `outdir` in your production.
+Ex: If your `outdir` is set to `dist` in `esbuild`, you need to copy the whole `dist` but not extracting files into the docker image root folder.
+
 ## Credits
 
 - Reference: [Pino Bundling](https://github.com/pinojs/pino/blob/master/docs/bundling.md)
