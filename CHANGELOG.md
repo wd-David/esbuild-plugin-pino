@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/davipon/esbuild-plugin-pino/compare/v1.2.0...v1.2.1) (2022-07-03)
+
+
+### 🚚 Chores
+
+* **deps:** add renovate.json ([#5](https://github.com/davipon/esbuild-plugin-pino/issues/5)) ([7c3d10d](https://github.com/davipon/esbuild-plugin-pino/commit/7c3d10dd358148aec298f6d9e8e86e44a687bbb2))
+* **deps:** pin dependencies ([#6](https://github.com/davipon/esbuild-plugin-pino/issues/6)) ([28f0cc1](https://github.com/davipon/esbuild-plugin-pino/commit/28f0cc1100123947d42be8fa1fd22990de0bcf3c))
+* **deps:** update dependency eslint-plugin-prettier to v4.1.0 ([#9](https://github.com/davipon/esbuild-plugin-pino/issues/9)) ([eab2455](https://github.com/davipon/esbuild-plugin-pino/commit/eab2455d441f4ab5360ae794c777e098069e1463))
+* **deps:** update typescript-eslint monorepo to v5.30.0 ([#11](https://github.com/davipon/esbuild-plugin-pino/issues/11)) ([b72143d](https://github.com/davipon/esbuild-plugin-pino/commit/b72143dcb6290adf5721b90bda80434c82e3f7e1))
+* **renovate:** update to schedule once a week ([2916c82](https://github.com/davipon/esbuild-plugin-pino/commit/2916c8283df81be4d6f2f1f83da52b32304d37d0))
+
+
+### 🐛 Bug Fixes
+
+* generate pino files reference at runtime but not build time ([#12](https://github.com/davipon/esbuild-plugin-pino/issues/12)) ([118b7c3](https://github.com/davipon/esbuild-plugin-pino/commit/118b7c3f46c442ae9f22e1e991eac87109b6b9ef))
+
 ## [1.2.0](https://github.com/davipon/esbuild-plugin-pino/compare/v1.1.11...v1.2.0) (2022-06-24)
 
 
