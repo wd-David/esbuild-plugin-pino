@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/davipon/esbuild-plugin-pino/compare/v1.2.1...v1.2.2) (2022-08-08)
+
+
+### 🚚 Chores
+
+* **deps:** update dependency commitizen to v4.2.5 ([87db216](https://github.com/davipon/esbuild-plugin-pino/commit/87db2161f8ba70dd58ca5e4943bb3320d3e531ad))
+* **deps:** update dependency esbuild to v0.14.48 ([9b73234](https://github.com/davipon/esbuild-plugin-pino/commit/9b7323458fb7275f7536abb6568c97229f57e695))
+* **deps:** update dependency esbuild to v0.14.49 ([c3a20f9](https://github.com/davipon/esbuild-plugin-pino/commit/c3a20f9acb49a33b6353155725eabc0e776af774))
+* **deps:** update dependency esbuild to v0.14.51 ([6524fff](https://github.com/davipon/esbuild-plugin-pino/commit/6524fff24111fdc7cb0a43911570cb604c02af51))
+* **deps:** update dependency esbuild to v0.14.53 ([a70ff8b](https://github.com/davipon/esbuild-plugin-pino/commit/a70ff8b566149f1ae808be110bcedf0d00a1ea4f))
+* **deps:** update dependency eslint to v8.19.0 ([#16](https://github.com/davipon/esbuild-plugin-pino/issues/16)) ([8caea4a](https://github.com/davipon/esbuild-plugin-pino/commit/8caea4a0c50c2128e7612e5f07d52938f5690e9e))
+* **deps:** update dependency eslint to v8.20.0 ([1b35416](https://github.com/davipon/esbuild-plugin-pino/commit/1b35416315f67f74903bed1f455e8d675a3a0d9e))
+* **deps:** update dependency eslint to v8.21.0 ([98de0f1](https://github.com/davipon/esbuild-plugin-pino/commit/98de0f18d0e49980521a72a13dfeba8b346e575f))
+* **deps:** update dependency eslint-plugin-prettier to v4.2.1 ([d832998](https://github.com/davipon/esbuild-plugin-pino/commit/d832998819fc6e4bc5dc2327966ad420d04b8e18))
+* **deps:** update dependency nodemon to v2.0.19 ([1ae2a84](https://github.com/davipon/esbuild-plugin-pino/commit/1ae2a84c38e085908ccea661211b9428ec8c467b))
+* **deps:** update dependency pino to v8.3.0 ([#26](https://github.com/davipon/esbuild-plugin-pino/issues/26)) ([0ce4744](https://github.com/davipon/esbuild-plugin-pino/commit/0ce47443a8faeb104bf341d736bb60a7f8fd39ec))
+* **deps:** update dependency pino to v8.3.1 ([c698a65](https://github.com/davipon/esbuild-plugin-pino/commit/c698a65cf104cc209c0816d42f65f406d0cc98af))
+* **deps:** update dependency pino to v8.4.0 ([844d01b](https://github.com/davipon/esbuild-plugin-pino/commit/844d01b234b9dffc2395e1a73cdd8378cf7c825b))
+* **deps:** update dependency pino-loki to v2.0.1 ([0b22a17](https://github.com/davipon/esbuild-plugin-pino/commit/0b22a17bbc0983e280054a0bdb723be958d7b31b))
+* **deps:** update dependency thread-stream to v1.0.1 ([247befd](https://github.com/davipon/esbuild-plugin-pino/commit/247befd94934b7d35b158f46a04254a1a15dc03a))
+* **deps:** update dependency thread-stream to v2 ([#29](https://github.com/davipon/esbuild-plugin-pino/issues/29)) ([295612d](https://github.com/davipon/esbuild-plugin-pino/commit/295612d59844d22abd5187697116d02d6646119c))
+* **deps:** update dependency thread-stream to v2.0.1 ([4f4ac98](https://github.com/davipon/esbuild-plugin-pino/commit/4f4ac98b8567b13daea78b2d515e9a519e3acbeb))
+* **deps:** update dependency tsx to v3.8.0 ([1bb12f6](https://github.com/davipon/esbuild-plugin-pino/commit/1bb12f63b73edc045d7cd23972253c765d0e8aa7))
+* **deps:** update dependency tsx to v3.8.1 ([#41](https://github.com/davipon/esbuild-plugin-pino/issues/41)) ([bed9af9](https://github.com/davipon/esbuild-plugin-pino/commit/bed9af9e5c5fb0c96acf42b076d92a1d1155e6e6))
+* **deps:** update dependency vitest to v0.18.1 ([3f2657d](https://github.com/davipon/esbuild-plugin-pino/commit/3f2657d144ccca6dd3180a2dcb4f4998c483e1b3))
+* **deps:** update dependency vitest to v0.19.0 ([dacf72e](https://github.com/davipon/esbuild-plugin-pino/commit/dacf72e80c5c97ec341f13169e654bbf57732f85))
+* **deps:** update dependency vitest to v0.20.2 ([e051a21](https://github.com/davipon/esbuild-plugin-pino/commit/e051a21cc7d5614232b273e74bdf7f3503b78495))
+* **deps:** update typescript-eslint monorepo to v5.30.4 ([389c2dc](https://github.com/davipon/esbuild-plugin-pino/commit/389c2dc84ea82ae2e09edf6e7b1f55a68e8fcae3))
+* **deps:** update typescript-eslint monorepo to v5.30.5 ([36dc4a8](https://github.com/davipon/esbuild-plugin-pino/commit/36dc4a8f442134665439bb987f0d020c45564516))
+* **deps:** update typescript-eslint monorepo to v5.30.6 ([7d054a4](https://github.com/davipon/esbuild-plugin-pino/commit/7d054a4f48496af0d8a688b43d3ed0d463fb6939))
+* **deps:** update typescript-eslint monorepo to v5.30.7 ([a53e6cc](https://github.com/davipon/esbuild-plugin-pino/commit/a53e6ccbd9284ba3f1c987285e40b4880babb21b))
+* **deps:** update typescript-eslint monorepo to v5.31.0 ([547e025](https://github.com/davipon/esbuild-plugin-pino/commit/547e025c5380ba5d2092c015023f073fffb0ba31))
+
+
+### ♻️ Code Refactoring
+
+* optimize "globalThis.__bundlerPathsOverrides" overrides ([f52a79f](https://github.com/davipon/esbuild-plugin-pino/commit/f52a79f72702bfea1a89c5b9d66cb6ec2c106cad))
+
+
+### 🔨 Build System
+
+* bumped packages to the latest version ([11daf68](https://github.com/davipon/esbuild-plugin-pino/commit/11daf683d4f7d09ea84db7457e0c3740e57f9a65))
+
 ### [1.2.1](https://github.com/davipon/esbuild-plugin-pino/compare/v1.2.0...v1.2.1) (2022-07-03)
 
 
