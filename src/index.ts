@@ -129,10 +129,7 @@ export default function esbuildPluginPino({
           .join(',')
 
         const globalThisDeclaration = `
-          globalThis.__bundlerPathsOverrides =
-            globalThis.__bundlerPathsOverrides
-                ? {...globalThis.__bundlerPathsOverrides, ${pinoOverrides}}
-                : {${pinoOverrides}};
+          globalThis.__bundlerPathsOverrides = { ...(globalThis.__bundlerPathsOverrides || {}), ${pinoOverrides}}
         `
 
         const code = functionDeclaration + globalThisDeclaration
