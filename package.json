@@ -57,7 +57,7 @@
     "nodemon": "2.0.19",
     "pino": "8.4.2",
     "pino-loki": "2.0.3",
-    "pino-pretty": "8.1.0",
+    "pino-pretty": "9.0.1",
     "pkgroll": "1.4.0",
     "prettier": "2.7.1",
     "standard-version": "9.5.0",
