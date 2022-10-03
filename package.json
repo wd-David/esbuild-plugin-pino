@@ -43,10 +43,10 @@
     "@commitlint/config-conventional": "17.1.0",
     "@commitlint/cz-commitlint": "17.1.2",
     "@types/node": "18.6.4",
-    "@typescript-eslint/eslint-plugin": "5.38.0",
-    "@typescript-eslint/parser": "5.38.0",
+    "@typescript-eslint/eslint-plugin": "5.38.1",
+    "@typescript-eslint/parser": "5.38.1",
     "commitizen": "4.2.5",
-    "esbuild": "0.15.9",
+    "esbuild": "0.15.10",
     "eslint": "8.24.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",
@@ -55,7 +55,7 @@
     "inquirer": "8.2.4",
     "lint-staged": "13.0.3",
     "nodemon": "2.0.20",
-    "pino": "8.6.0",
+    "pino": "8.6.1",
     "pino-loki": "2.0.3",
     "pino-pretty": "9.1.0",
     "pkgroll": "1.4.0",
@@ -63,7 +63,7 @@
     "standard-version": "9.5.0",
     "thread-stream": "2.2.0",
     "tsx": "3.9.0",
-    "typescript": "4.8.3",
+    "typescript": "4.8.4",
     "vitest": "0.23.4"
   }
 }
