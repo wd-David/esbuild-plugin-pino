@@ -24,7 +24,7 @@ specifiers:
   prettier: 2.7.1
   standard-version: 9.5.0
   thread-stream: 2.2.0
-  tsx: 3.10.4
+  tsx: 3.11.0
   typescript: 4.8.4
   vitest: 0.24.3
 
@@ -52,7 +52,7 @@ devDependencies:
   prettier: 2.7.1
   standard-version: 9.5.0
   thread-stream: 2.2.0
-  tsx: 3.10.4
+  tsx: 3.11.0
   typescript: 4.8.4
   vitest: 0.24.3
 
@@ -4278,8 +4278,8 @@ packages:
       typescript: 4.8.4
     dev: true
 
-  /tsx/3.10.4:
-    resolution: {integrity: sha512-sBxeSgUAPVqRgBPk6TY0yFiNDUlva9rA+Nj46oYEd89FXVD2MFWChFhybTtq7Qh1Ies/O75mQNwpLuO7m8gToA==}
+  /tsx/3.11.0:
+    resolution: {integrity: sha512-q+q4xxu41+AafVwvAGqtNJ1ekPFd33ZhTMXvgIpHMqv/W89efwDRE9IyjhEAZm5iTHsshKaf1BYWSk789BrNCA==}
     hasBin: true
     dependencies:
       '@esbuild-kit/cjs-loader': 2.4.0
