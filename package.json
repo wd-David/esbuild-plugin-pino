@@ -13,7 +13,6 @@
   "repository": "https://github.com/davipon/esbuild-plugin-pino",
   "bugs": "https://github.com/davipon/esbuild-plugin-pino/issues",
   "scripts": {
-    "prepare": "husky install",
     "dev": "nodemon",
     "build": "pkgroll",
     "buildJS": "pkgroll && node test/buildScripts/buildJS.js",
@@ -21,7 +20,6 @@
     "test": "rm -rf dist && pkgroll && vitest run",
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint .",
-    "cz": "cz",
     "release:major": "standard-version --no-verify --release-as major",
     "release:minor": "standard-version --no-verify --release-as minor",
     "release:patch": "standard-version --no-verify --release-as patch"
@@ -39,21 +37,14 @@
     "dist"
   ],
   "devDependencies": {
-    "@commitlint/cli": "17.2.0",
-    "@commitlint/config-conventional": "17.2.0",
-    "@commitlint/cz-commitlint": "17.2.0",
     "@types/node": "18.11.9",
     "@typescript-eslint/eslint-plugin": "5.43.0",
     "@typescript-eslint/parser": "5.43.0",
-    "commitizen": "4.2.5",
-    "esbuild": "0.15.14",
+    "esbuild": "0.15.15",
     "eslint": "8.28.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",
     "execa": "6.1.0",
-    "husky": "8.0.2",
-    "inquirer": "9.1.4",
-    "lint-staged": "13.0.3",
     "nodemon": "2.0.20",
     "pino": "8.7.0",
     "pino-loki": "2.0.3",
