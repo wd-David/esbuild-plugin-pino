@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.7](https://github.com/davipon/esbuild-plugin-pino/compare/v1.2.6...v1.2.7) (2022-12-05)
+
+
+### 🚚 Chores
+
+* **deps:** update all non-major dependencies ([4dcfe13](https://github.com/davipon/esbuild-plugin-pino/commit/4dcfe1326a06f8cbb11a6bdc1617c4e677447682))
+* **deps:** update all non-major dependencies ([1cca8ea](https://github.com/davipon/esbuild-plugin-pino/commit/1cca8ea120ea79a5278fc8aa197bd1670a4b1aeb))
+
 ### [1.2.6](https://github.com/davipon/esbuild-plugin-pino/compare/v1.2.5...v1.2.6) (2022-11-21)
 
 
