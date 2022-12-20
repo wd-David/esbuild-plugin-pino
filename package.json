@@ -38,9 +38,9 @@
   ],
   "devDependencies": {
     "@types/node": "18.11.17",
-    "@typescript-eslint/eslint-plugin": "5.46.1",
-    "@typescript-eslint/parser": "5.46.1",
-    "esbuild": "0.16.9",
+    "@typescript-eslint/eslint-plugin": "5.47.0",
+    "@typescript-eslint/parser": "5.47.0",
+    "esbuild": "0.16.10",
     "eslint": "8.30.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",
@@ -55,6 +55,6 @@
     "thread-stream": "2.2.0",
     "tsx": "3.12.1",
     "typescript": "4.9.4",
-    "vitest": "0.25.8"
+    "vitest": "0.26.0"
   }
 }
