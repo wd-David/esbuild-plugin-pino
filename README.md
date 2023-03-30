@@ -61,6 +61,28 @@ build({
 }).catch(() => process.exit(1))
 ```
 
+```js
+// Start from esbuild@^0.17.1
+// Multiple entryPoints in an array of object & pino transports
+const { build } = require('esbuild')
+const esbuildPluginPino = require('esbuild-plugin-pino')
+
+build({
+  entryPoints: [
+    {
+      in: './test/fixtures/first.js',
+      out: 'first'
+    },
+    {
+      in: './test/fixtures/second.js',
+      out: 'abc/cde/second'
+    }
+  ],
+  outdir: 'dist',
+  plugins: [esbuildPluginPino({ transports: ['pino-pretty', 'pino-loki'] })],
+}).catch(() => process.exit(1))
+```
+
 ## Deploy to production
 
 If you use `docker` or severless function like AWS Lambda, make sure to use the same `outdir` in your production.
