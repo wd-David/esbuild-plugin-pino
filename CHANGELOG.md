@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/davipon/esbuild-plugin-pino/compare/v1.2.8...v1.3.0) (2023-03-30)
+
+
+### 🚚 Chores
+
+* **deps:** update all non-major dependencies ([54364cc](https://github.com/davipon/esbuild-plugin-pino/commit/54364cc6d908d397d55b2fe40fbe3d605fc82b84))
+* remove unused files ([cb4f978](https://github.com/davipon/esbuild-plugin-pino/commit/cb4f9786bf4d851a191328a57aacacc7b7c39859))
+
+
+### ✨ Features
+
+* adapt to the new esbuild entryPoints API ([#75](https://github.com/davipon/esbuild-plugin-pino/issues/75)) ([321118c](https://github.com/davipon/esbuild-plugin-pino/commit/321118caa36b3b5df4a048b23f1c68789c7093b0))
+
 ### [1.2.8](https://github.com/davipon/esbuild-plugin-pino/compare/v1.2.7...v1.2.8) (2022-12-20)
 
 
