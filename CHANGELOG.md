@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/davipon/esbuild-plugin-pino/compare/v1.3.0...v2.0.0) (2023-04-16)
+
+
+### 🚚 Chores
+
+* add esbuild as peer dependency ([#79](https://github.com/davipon/esbuild-plugin-pino/issues/79)) ([ed8ff23](https://github.com/davipon/esbuild-plugin-pino/commit/ed8ff23171b745623be1da1f48f8d3f9ece6920b))
+* **deps:** update all non-major dependencies ([fb79fd0](https://github.com/davipon/esbuild-plugin-pino/commit/fb79fd0bcf057f2f659f24b4a253e2cf1f7173a0))
+* **deps:** update dependency esbuild to v0.17.15 ([e2119ef](https://github.com/davipon/esbuild-plugin-pino/commit/e2119ef4f0714531f84ff3ba4f53db1cd477eb1f))
+* **deps:** update dependency typescript to v5.0.3 ([#71](https://github.com/davipon/esbuild-plugin-pino/issues/71)) ([56c4e80](https://github.com/davipon/esbuild-plugin-pino/commit/56c4e8031631d310d9a75464d580035c45881374))
+
+
+### 🔨 Build System
+
+* fix pnpm-lock.yaml ([439406f](https://github.com/davipon/esbuild-plugin-pino/commit/439406fbfc75adefa0bd55e63f53b9a48f798699))
+
 ## [1.3.0](https://github.com/davipon/esbuild-plugin-pino/compare/v1.2.8...v1.3.0) (2023-03-30)
 
 
