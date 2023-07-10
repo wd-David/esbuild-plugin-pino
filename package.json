@@ -39,8 +39,8 @@
   ],
   "devDependencies": {
     "@types/node": "18.16.19",
-    "@typescript-eslint/eslint-plugin": "5.60.1",
-    "@typescript-eslint/parser": "5.60.1",
+    "@typescript-eslint/eslint-plugin": "5.61.0",
+    "@typescript-eslint/parser": "5.61.0",
     "esbuild": "0.18.11",
     "eslint": "8.44.0",
     "eslint-config-prettier": "8.8.0",
@@ -49,14 +49,14 @@
     "nodemon": "2.0.22",
     "pino": "8.14.1",
     "pino-loki": "2.1.3",
-    "pino-pretty": "10.0.0",
+    "pino-pretty": "10.0.1",
     "pkgroll": "1.10.0",
     "prettier": "2.8.8",
     "standard-version": "9.5.0",
     "thread-stream": "2.3.0",
     "tsx": "3.12.7",
     "typescript": "5.1.6",
-    "vitest": "0.32.2"
+    "vitest": "0.33.0"
   },
   "peerDependencies": {
     "esbuild": "^0.17.1 || ^0.18.0"
