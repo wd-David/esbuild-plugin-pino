@@ -38,11 +38,11 @@
     "dist"
   ],
   "devDependencies": {
-    "@types/node": "18.17.6",
-    "@typescript-eslint/eslint-plugin": "6.4.0",
-    "@typescript-eslint/parser": "6.4.0",
+    "@types/node": "18.17.12",
+    "@typescript-eslint/eslint-plugin": "6.4.1",
+    "@typescript-eslint/parser": "6.4.1",
     "esbuild": "0.19.2",
-    "eslint": "8.47.0",
+    "eslint": "8.48.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-prettier": "5.0.0",
     "execa": "7.2.0",
@@ -55,8 +55,8 @@
     "standard-version": "9.5.0",
     "thread-stream": "2.4.0",
     "tsx": "3.12.7",
-    "typescript": "5.1.6",
-    "vitest": "0.34.2"
+    "typescript": "5.2.2",
+    "vitest": "0.34.3"
   },
   "peerDependencies": {
     "esbuild": "^0.17.1 || ^0.18.0 || ^0.19.0"
