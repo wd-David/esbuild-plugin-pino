@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/davipon/esbuild-plugin-pino/compare/v2.0.1...v2.0.2) (2023-10-04)
+
+
+### 🚚 Chores
+
+* **deps:** update all major dependencies ([#105](https://github.com/davipon/esbuild-plugin-pino/issues/105)) ([02c374e](https://github.com/davipon/esbuild-plugin-pino/commit/02c374e0893caa7017460e3db07af79b33319f5c))
+* **deps:** update all non-major dependencies ([6ef76a2](https://github.com/davipon/esbuild-plugin-pino/commit/6ef76a27a0cf992ed9c9aeee38793c2988fd320f))
+* **deps:** update all non-major dependencies ([f889c8b](https://github.com/davipon/esbuild-plugin-pino/commit/f889c8bddc84d902fced8591e5be2c593822ac1f))
+* **deps:** update all non-major dependencies ([7cb2a7b](https://github.com/davipon/esbuild-plugin-pino/commit/7cb2a7b5e1ef44554f8e24f0e354828289c68455))
+* **deps:** update all non-major dependencies ([68e971f](https://github.com/davipon/esbuild-plugin-pino/commit/68e971f4d1af55a1a5206b47372095d2e2a13e87))
+* **deps:** update all non-major dependencies ([944b6d4](https://github.com/davipon/esbuild-plugin-pino/commit/944b6d41d8a2966563d6f1428167d3d71146f1fd))
+* **deps:** update all non-major dependencies ([ef4fe3e](https://github.com/davipon/esbuild-plugin-pino/commit/ef4fe3ebbe850b576ccad2ff8efbc3386ce1036f))
+* **deps:** update all non-major dependencies ([b6b2404](https://github.com/davipon/esbuild-plugin-pino/commit/b6b2404d7252368b0ba3611a4f6eb453ce0228c5))
+* **deps:** update dependency execa to v8 ([#101](https://github.com/davipon/esbuild-plugin-pino/issues/101)) ([3035684](https://github.com/davipon/esbuild-plugin-pino/commit/3035684a5125255b08e260f68ce3481e81afc9e6))
+
+
+### 🔨 Build System
+
+* **deps:** bump actions/checkout from 3 to 4 ([#108](https://github.com/davipon/esbuild-plugin-pino/issues/108)) ([c7daaa5](https://github.com/davipon/esbuild-plugin-pino/commit/c7daaa5d17e1c9f7024c2e1478a02b3904015baa))
+
+
+### ✨ Features
+
+* support absolute dist paths and use absWorkingDir is present ([#110](https://github.com/davipon/esbuild-plugin-pino/issues/110)) ([30f274b](https://github.com/davipon/esbuild-plugin-pino/commit/30f274befbaa14aed61621fc41e3cb601c26c51d))
+
 ### [2.0.1](https://github.com/davipon/esbuild-plugin-pino/compare/v2.0.0...v2.0.1) (2023-08-18)
 
 
