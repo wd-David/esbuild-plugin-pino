@@ -172,9 +172,16 @@ export default function esbuildPluginPino({
 
         const contents = await readFile(args.path, 'utf8')
 
-        const absoluteOutputPath = `\${process.cwd()}\${require('path').sep}${
-          currentBuild.initialOptions.outdir || 'dist'
-        }`
+        let absoluteOutputPath = "";
+        const { outdir = "dist" } = currentBuild.initialOptions;
+        if(path.isAbsolute(outdir)){
+          absoluteOutputPath = outdir.replace(/\\/g, "\\\\");
+        } else {
+          const workingDir = currentBuild.initialOptions.absWorkingDir ? `"${currentBuild.initialOptions.absWorkingDir.replace(/\\/g, "\\\\")}"` : "process.cwd()";
+          absoluteOutputPath = `\${${workingDir}}\${require('path').sep}${
+            currentBuild.initialOptions.outdir || 'dist'
+          }`
+        }
 
         const functionDeclaration = `
           function pinoBundlerAbsolutePath(p) {
