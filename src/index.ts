@@ -119,7 +119,7 @@ export default function esbuildPluginPino({
       const pino = path.dirname(require.resolve('pino'))
       const threadStream = path.dirname(require.resolve('thread-stream'))
 
-      const { entryPoints, outbase } = currentBuild.initialOptions
+      const { entryPoints, outbase, outExtension } = currentBuild.initialOptions
       /** Pino and worker */
       const customEntrypoints: Record<string, string> = {
         'thread-stream-worker': path.join(threadStream, 'lib/worker.js'),
@@ -193,6 +193,11 @@ export default function esbuildPluginPino({
             }
           }
         `
+
+        let extension = '.js'
+        if(outExtension && outExtension['.js']){
+          extension = outExtension['.js']
+        }
         const pinoOverrides = Object.keys({
           ...customEntrypoints,
           ...transportsEntrypoints
@@ -201,7 +206,7 @@ export default function esbuildPluginPino({
             (id) =>
               `'${
                 id === 'pino-file' ? 'pino/file' : id
-              }': pinoBundlerAbsolutePath('./${id}.js')`
+              }': pinoBundlerAbsolutePath('./${id}${extension}')`
           )
           .join(',')
 
