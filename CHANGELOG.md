@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/davipon/esbuild-plugin-pino/compare/v2.0.2...v2.1.0) (2023-10-28)
+
+
+### 🔨 Build System
+
+* **deps-dev:** bump postcss from 8.4.27 to 8.4.31 ([#111](https://github.com/davipon/esbuild-plugin-pino/issues/111)) ([3f112a0](https://github.com/davipon/esbuild-plugin-pino/commit/3f112a0188cab8845e5b8b2bc4edf36afa5b27fc))
+
+
+### 🚚 Chores
+
+* **deps:** update all non-major dependencies ([4e4f107](https://github.com/davipon/esbuild-plugin-pino/commit/4e4f10724ca3db413c86d92cd288f0e49e892ed8))
+* **deps:** update all non-major dependencies ([5f0013d](https://github.com/davipon/esbuild-plugin-pino/commit/5f0013d72acbdc95ce36c6b8b7d031a461fde943))
+* **deps:** update all non-major dependencies ([e661f93](https://github.com/davipon/esbuild-plugin-pino/commit/e661f936aa6b5f186fa4c0fff7be0f8da09a2ba9))
+
+
+### ✨ Features
+
+* respect outExtension option from esbuild ([#115](https://github.com/davipon/esbuild-plugin-pino/issues/115)) ([90ed134](https://github.com/davipon/esbuild-plugin-pino/commit/90ed134ee7d9d5911effbfd90633c8d515d53e88))
+
 ### [2.0.2](https://github.com/davipon/esbuild-plugin-pino/compare/v2.0.1...v2.0.2) (2023-10-04)
 
 
