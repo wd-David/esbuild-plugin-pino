@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/davipon/esbuild-plugin-pino/compare/v2.1.0...v2.1.1) (2024-02-14)
+
+
+### 🔨 Build System
+
+* **deps-dev:** bump vite from 5.0.7 to 5.1.1 ([#136](https://github.com/davipon/esbuild-plugin-pino/issues/136)) ([4033160](https://github.com/davipon/esbuild-plugin-pino/commit/4033160fff0ee1ba87a2d0ee74746cea61b71b46))
+* **deps:** bump actions/cache from 3 to 4 ([#133](https://github.com/davipon/esbuild-plugin-pino/issues/133)) ([ad8381b](https://github.com/davipon/esbuild-plugin-pino/commit/ad8381b337069dae20694a46cef0effbe74e45f6))
+
+
+### 🚚 Chores
+
+* **deps:** update all major dependencies ([#117](https://github.com/davipon/esbuild-plugin-pino/issues/117)) ([bd007f3](https://github.com/davipon/esbuild-plugin-pino/commit/bd007f3db5f18a3447b5f65b36d93b9999a3c464))
+* **deps:** update all major dependencies ([#132](https://github.com/davipon/esbuild-plugin-pino/issues/132)) ([a65c058](https://github.com/davipon/esbuild-plugin-pino/commit/a65c0581022d8833b21433f23b971dc8d7804467))
+* **deps:** update all non-major dependencies ([c256ce3](https://github.com/davipon/esbuild-plugin-pino/commit/c256ce3941ad9cb196d5ac30f38d3d027b02c73c))
+* **deps:** update all non-major dependencies ([5524554](https://github.com/davipon/esbuild-plugin-pino/commit/5524554bf98d51670c82e693dc4cc357dba2e2c3))
+* **deps:** update all non-major dependencies ([46c3fb9](https://github.com/davipon/esbuild-plugin-pino/commit/46c3fb95ac3f99f04e47bceed4596fbf8d83296a))
+* **deps:** update all non-major dependencies ([ba7ebd4](https://github.com/davipon/esbuild-plugin-pino/commit/ba7ebd4692334d1b13f1f54e97619e5bc1c27375))
+* **deps:** update all non-major dependencies ([8532fe6](https://github.com/davipon/esbuild-plugin-pino/commit/8532fe6b99d747345218d83916ceddfc61198aeb))
+* **deps:** update all non-major dependencies ([fcef0d3](https://github.com/davipon/esbuild-plugin-pino/commit/fcef0d3c3e2016a6275392807136ef557f4a335a))
+* **deps:** update all non-major dependencies ([6f89e81](https://github.com/davipon/esbuild-plugin-pino/commit/6f89e81a45a5dad3f8e2aeb0a21766ff8c233ee0))
+* **deps:** update all non-major dependencies ([15606b7](https://github.com/davipon/esbuild-plugin-pino/commit/15606b7e2aaa20ed9e999ed7b4bbd931ea2b5215))
+* **deps:** update all non-major dependencies ([dd8b649](https://github.com/davipon/esbuild-plugin-pino/commit/dd8b649a4d07894a2cdc2060a40f7de35a1a7705))
+* **deps:** update all non-major dependencies ([0b72272](https://github.com/davipon/esbuild-plugin-pino/commit/0b722724d2f0aa3233823a5c2d521571da782060))
+* **deps:** update all non-major dependencies ([4822f76](https://github.com/davipon/esbuild-plugin-pino/commit/4822f768123f6fc8b0664e72bb625a3344efe53d))
+* **deps:** update all non-major dependencies ([2223e40](https://github.com/davipon/esbuild-plugin-pino/commit/2223e40cea637c40353aa48db155619349c0e4f1))
+* **deps:** update dependency tsx to v4 ([#120](https://github.com/davipon/esbuild-plugin-pino/issues/120)) ([9a6b987](https://github.com/davipon/esbuild-plugin-pino/commit/9a6b987e3c787304bfed73053a013485a1b7af9c))
+* **deps:** update dependency vitest to v1 ([#126](https://github.com/davipon/esbuild-plugin-pino/issues/126)) ([ef0a022](https://github.com/davipon/esbuild-plugin-pino/commit/ef0a0224c38df3f796fe3aea9947b89e693a6b99))
+* update pnpm-lock.yaml ([#138](https://github.com/davipon/esbuild-plugin-pino/issues/138)) ([aa774d6](https://github.com/davipon/esbuild-plugin-pino/commit/aa774d60814531a9c4811e24e0a5525a90203f90))
+
 ## [2.1.0](https://github.com/davipon/esbuild-plugin-pino/compare/v2.0.2...v2.1.0) (2023-10-28)
 
 
