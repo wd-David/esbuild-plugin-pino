@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { readFile } from 'node:fs/promises'
+import { stat, readFile } from 'node:fs/promises'
 import type { Plugin, BuildOptions } from 'esbuild'
 
 type NewEntrypointsType = Extract<
