@@ -115,7 +115,7 @@ export default function esbuildPluginPino({
 }): Plugin {
   return {
     name: 'pino',
-    setup(currentBuild) {
+    async setup(currentBuild) {
       const pino = path.dirname(require.resolve('pino'))
       const threadStream = path.dirname(require.resolve('thread-stream'))
 
@@ -124,9 +124,18 @@ export default function esbuildPluginPino({
       const customEntrypoints: Record<string, string> = {
         'thread-stream-worker': path.join(threadStream, 'lib/worker.js'),
         'pino-worker': path.join(pino, 'lib/worker.js'),
-        'pino-pipeline-worker': path.join(pino, 'lib/worker-pipeline.js'),
         'pino-file': path.join(pino, 'file.js')
       }
+
+      /** worker-pipeline.js was removed in Pino v9.1 */
+      try {
+        const pinoPipelineWorker = path.join(pino, 'lib/worker-pipeline.js');
+        await stat(pinoPipelineWorker)
+        customEntrypoints['pino-pipeline-worker'] = pinoPipelineWorker;
+      } catch (err) {
+        // Ignored
+      }
+
       /** Transports */
       const transportsEntrypoints: Record<string, string> = Object.fromEntries(
         transports.map((transport) => [transport, require.resolve(transport)])
