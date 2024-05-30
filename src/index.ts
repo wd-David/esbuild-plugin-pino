@@ -129,9 +129,9 @@ export default function esbuildPluginPino({
 
       /** worker-pipeline.js was removed in Pino v9.1 */
       try {
-        const pinoPipelineWorker = path.join(pino, 'lib/worker-pipeline.js');
+        const pinoPipelineWorker = path.join(pino, 'lib/worker-pipeline.js')
         await stat(pinoPipelineWorker)
-        customEntrypoints['pino-pipeline-worker'] = pinoPipelineWorker;
+        customEntrypoints['pino-pipeline-worker'] = pinoPipelineWorker
       } catch (err) {
         // Ignored
       }
