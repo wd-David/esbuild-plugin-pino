@@ -171,40 +171,41 @@ export default function esbuildPluginPino({
 
       currentBuild.initialOptions.entryPoints = newEntrypoints
 
-      let pinoBundlerRan = false
+      currentBuild.onResolve(
+        { filter: /^virtual:esbuild-plugin-pino-abspath$/ },
+        (args) => {
+          return {
+            path: args.path,
+            namespace: 'esbuild-plugin-pino'
+          }
+        }
+      )
 
-      currentBuild.onEnd(() => {
-        pinoBundlerRan = false
+      currentBuild.onLoad({filter: /^virtual:esbuild-plugin-pino-abspath$/, namespace: 'esbuild-plugin-pino'}, () => {
+        if (currentBuild.initialOptions.format === 'esm') {
+          return {
+            contents: `\
+              export function pinoBundlerAbsolutePath(p) {
+                return new URL(p, import.meta.url).pathname;
+              }
+            `
+          }
+        }
+
+        return {
+          contents: `\
+            exports.pinoBundlerAbsolutePath = function(p) {
+              return require('path').join(__dirname, p);
+            }
+          `
+        }
       })
 
       currentBuild.onLoad({ filter: /pino\.js$/ }, async (args) => {
-        if (pinoBundlerRan) return
-        pinoBundlerRan = true
-
         const contents = await readFile(args.path, "utf8")
 
-        let absoluteOutputPath = ""
-        const { outdir = "dist" } = currentBuild.initialOptions
-        if (path.isAbsolute(outdir)) {
-          absoluteOutputPath = outdir.replace(/\\/g, "\\\\")
-        } else {
-          const workingDir = currentBuild.initialOptions.absWorkingDir
-            ? `"${currentBuild.initialOptions.absWorkingDir.replace(/\\/g, "\\\\")}"`
-            : "process.cwd()"
-          absoluteOutputPath = `\${${workingDir}}\${require('path').sep}${
-            currentBuild.initialOptions.outdir || "dist"
-          }`
-        }
-
-        const functionDeclaration = `
-          function pinoBundlerAbsolutePath(p) {
-            try {
-              return require('path').join(\`${absoluteOutputPath}\`.replace(/\\\\/g, '/'), p)
-            } catch(e) {
-              const f = new Function('p', 'return new URL(p, import.meta.url).pathname');
-              return f(p)
-            }
-          }
+        const functionDeclaration = `\
+          const { pinoBundlerAbsolutePath } = require('virtual:esbuild-plugin-pino-abspath');
         `
 
         let extension = ".js"
