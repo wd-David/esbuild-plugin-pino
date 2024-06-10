@@ -37,13 +37,13 @@ function transformToObject(
     ? path.win32.sep
     : path.posix.sep
 
+  let tmpOutbase = ""
   if (!outbase) {
     const hierarchy = entryPoints[0].split(separator)
     let i = 0
-    outbase = ""
     let nextOutbase = ""
     do {
-      outbase = nextOutbase
+      tmpOutbase = nextOutbase
       i++
       nextOutbase = hierarchy.slice(0, i).join(separator)
     } while (
@@ -55,7 +55,9 @@ function transformToObject(
   const newEntrypoints: Record<string, string> = {}
   for (const entrypoint of entryPoints) {
     const destination = (
-      outbase ? entrypoint.replace(`${outbase}${separator}`, "") : entrypoint
+      tmpOutbase
+        ? entrypoint.replace(`${tmpOutbase}${separator}`, "")
+        : entrypoint
     ).replace(/.(js|ts)$/, "")
     newEntrypoints[destination] = entrypoint
   }
@@ -206,7 +208,7 @@ export default function esbuildPluginPino({
         `
 
         let extension = ".js"
-        if (outExtension && outExtension[".js"]) {
+        if (outExtension?.[".js"]) {
           extension = outExtension[".js"]
         }
         const pinoOverrides = Object.keys({

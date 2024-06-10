@@ -1,6 +1,6 @@
-import { execSync } from "child_process"
-import { readFileSync, readdirSync, rmSync } from "fs"
-import { resolve } from "path"
+import { execSync } from "node:child_process"
+import { readFileSync, readdirSync, rmSync } from "node:fs"
+import { resolve } from "node:path"
 import { execa } from "execa"
 import { afterEach, describe, expect, it } from "vitest"
 
@@ -12,7 +12,7 @@ const arrayOfObjectsScriptPath = resolve(
 )
 const distFolder = "test/dist"
 
-const functionDeclaration = `function pinoBundlerAbsolutePath(p)`
+const functionDeclaration = "function pinoBundlerAbsolutePath(p)"
 
 describe("Test esbuildPluginPino", () => {
   afterEach(() => {

@@ -19,7 +19,7 @@
     "buildTS": "pkgroll && tsx test/buildScripts/buildTS.ts",
     "buildTS2": "pkgroll && tsx test/buildScripts/arrayOfObjects.ts",
     "test": "rm -rf dist && pkgroll && vitest run",
-    "check": "biome check --apply .",
+    "check": "biome check --write .",
     "release:major": "standard-version --no-verify --release-as major",
     "release:minor": "standard-version --no-verify --release-as minor",
     "release:patch": "standard-version --no-verify --release-as patch"
