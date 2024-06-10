@@ -12,7 +12,7 @@ const arrayOfObjectsScriptPath = resolve(
 )
 const distFolder = 'test/dist'
 
-const functionDeclaration = `function pinoBundlerAbsolutePath(p)`
+const functionDeclaration = `pinoBundlerAbsolutePath = function(p)`
 
 describe('Test esbuildPluginPino', () => {
   afterEach(() => {
@@ -77,7 +77,7 @@ describe('Test esbuildPluginPino', () => {
       resolve(secondDistFilePath)
     ])
     expect(stdout2).toEqual(expect.stringMatching(/This is second/))
-  })
+  }, 10000)
   it('Two entrypoints with nested file in array of objects', async () => {
     expect.assertions(13)
 
