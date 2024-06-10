@@ -4,11 +4,11 @@ on:
   push:
     branches: [main]
     paths-ignore:
-      - '*.md'
+      - "*.md"
   pull_request:
     branches: [main]
     paths-ignore:
-      - '*.md'
+      - "*.md"
 
 jobs:
   ci:
@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
@@ -55,7 +55,7 @@ jobs:
 
       - name: Run Formatter and Linter
         id: format-lint
-        run: pnpm format && pnpm lint
+        run: pnpm check
 
       - name: Run Tests
         id: tests

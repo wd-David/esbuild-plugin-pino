@@ -1,5 +1,5 @@
-const pino = require('pino')
+const pino = require("pino")
 
 const logger = pino()
 
-logger.info('This is first!')
+logger.info("This is first!")
