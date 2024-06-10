@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-pino",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "An esbuild plugin to generate extra pino files for bundling",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -33,7 +33,9 @@
   ],
   "author": "David Peng <davipondev@gmail.com>",
   "license": "MIT",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@biomejs/biome": "^1.8.0",
     "@types/node": "20.14.2",
