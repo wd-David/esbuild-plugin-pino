@@ -48,7 +48,7 @@
     "pkgroll": "2.1.1",
     "standard-version": "9.5.0",
     "thread-stream": "2.7.0",
-    "tsx": "4.15.1",
+    "tsx": "4.15.5",
     "typescript": "5.4.5",
     "vitest": "1.6.0"
   },
