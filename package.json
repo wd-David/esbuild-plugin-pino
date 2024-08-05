@@ -40,17 +40,17 @@
     "@biomejs/biome": "^1.8.0",
     "@types/node": "20.14.14",
     "esbuild": "0.23.0",
-    "execa": "8.0.1",
+    "execa": "9.3.0",
     "nodemon": "3.1.4",
-    "pino": "8.21.0",
+    "pino": "9.3.2",
     "pino-loki": "2.3.0",
-    "pino-pretty": "10.3.1",
+    "pino-pretty": "11.2.2",
     "pkgroll": "2.4.2",
     "standard-version": "9.5.0",
-    "thread-stream": "2.7.0",
+    "thread-stream": "3.1.0",
     "tsx": "4.16.5",
     "typescript": "5.5.4",
-    "vitest": "1.6.0"
+    "vitest": "2.0.5"
   },
   "peerDependencies": {
     "esbuild": "^0.17.1 || ^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0"
