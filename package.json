@@ -38,8 +38,8 @@
   ],
   "devDependencies": {
     "@biomejs/biome": "^1.8.0",
-    "@types/node": "20.14.15",
-    "esbuild": "0.23.0",
+    "@types/node": "20.16.0",
+    "esbuild": "0.23.1",
     "execa": "8.0.1",
     "nodemon": "3.1.4",
     "pino": "8.21.0",
