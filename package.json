@@ -38,7 +38,7 @@
   ],
   "devDependencies": {
     "@biomejs/biome": "^1.8.0",
-    "@types/node": "20.16.1",
+    "@types/node": "20.16.3",
     "esbuild": "0.23.1",
     "execa": "8.0.1",
     "nodemon": "3.1.4",
@@ -48,7 +48,7 @@
     "pkgroll": "2.4.2",
     "standard-version": "9.5.0",
     "thread-stream": "2.7.0",
-    "tsx": "4.18.0",
+    "tsx": "4.19.0",
     "typescript": "5.5.4",
     "vitest": "1.6.0"
   },
