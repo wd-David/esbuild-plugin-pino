@@ -39,11 +39,11 @@
   "devDependencies": {
     "@biomejs/biome": "^1.8.0",
     "@types/node": "20.16.5",
-    "esbuild": "0.23.1",
+    "esbuild": "0.24.0",
     "execa": "8.0.1",
-    "nodemon": "3.1.4",
+    "nodemon": "3.1.7",
     "pino": "8.21.0",
-    "pino-loki": "2.3.0",
+    "pino-loki": "2.3.1",
     "pino-pretty": "10.3.1",
     "pkgroll": "2.5.0",
     "standard-version": "9.5.0",
@@ -53,6 +53,6 @@
     "vitest": "1.6.0"
   },
   "peerDependencies": {
-    "esbuild": "^0.17.1 || ^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0"
+    "esbuild": "^0.17.1 || ^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0"
   }
 }
