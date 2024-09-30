@@ -185,8 +185,10 @@ export default function esbuildPluginPino({
         if (currentBuild.initialOptions.format === 'esm') {
           return {
             contents: `\
+              import { fileURLToPath } from 'node:url';
+
               export function pinoBundlerAbsolutePath(p) {
-                return new URL(p, import.meta.url).pathname;
+                return fileURLToPath(new URL(p, import.meta.url));
               }
             `
           }
