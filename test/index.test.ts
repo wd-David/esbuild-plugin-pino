@@ -12,7 +12,7 @@ const arrayOfObjectsScriptPath = resolve(
 )
 const distFolder = "test/dist"
 
-const functionDeclaration = "function pinoBundlerAbsolutePath(p)"
+const functionDeclaration = "pinoBundlerAbsolutePath = function(p)"
 
 describe("Test esbuildPluginPino", () => {
   afterEach(() => {
