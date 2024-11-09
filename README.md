@@ -16,7 +16,7 @@ npm install esbuild-plugin-pino
 
 ## Description
 
-This plugin allows to use of pino v7 with esbuild generated bundle files.
+This plugin allows to use of pino v7 ~ v9 with esbuild generated bundle files.
 
 Note that, due to pino architecture (based on Node.js' Worker Threads), it is not possible to make it work without generating extra files.
 
@@ -24,7 +24,7 @@ This means that when using this plugin the following list of files will be gener
 
 - `thread-stream.js`
 - `pino-worker.js`
-- `pino-pipeline-worker.js`
+- `pino-pipeline-worker.js` (no longer required after Pino v9.1.0)
 - `pino-file.js`
 
 A file for each transport you specify in the plugin constructor's `transports` option. (see below)
@@ -36,51 +36,51 @@ Simply include the plugin in your esbuild build script. Make sure you provide th
 
 ```js
 // General usage
-const { build } = require('esbuild')
-const esbuildPluginPino = require('esbuild-plugin-pino')
+const { build } = require("esbuild");
+const esbuildPluginPino = require("esbuild-plugin-pino");
 
 build({
-  entryPoints: ['src/index.ts'],
-  outdir: 'dist',
-  plugins: [esbuildPluginPino({ transports: ['pino-pretty'] })],
-}).catch(() => process.exit(1))
+  entryPoints: ["src/index.ts"],
+  outdir: "dist",
+  plugins: [esbuildPluginPino({ transports: ["pino-pretty"] })],
+}).catch(() => process.exit(1));
 ```
 
 ```js
 // Multiple entryPoints & pino transports
-const { build } = require('esbuild')
-const esbuildPluginPino = require('esbuild-plugin-pino')
+const { build } = require("esbuild");
+const esbuildPluginPino = require("esbuild-plugin-pino");
 
 build({
   entryPoints: {
-    first: './first.js',
-    'abc/cde/second': './second.js'
+    first: "./first.js",
+    "abc/cde/second": "./second.js",
   },
-  outdir: 'dist',
-  plugins: [esbuildPluginPino({ transports: ['pino-pretty', 'pino-loki'] })],
-}).catch(() => process.exit(1))
+  outdir: "dist",
+  plugins: [esbuildPluginPino({ transports: ["pino-pretty", "pino-loki"] })],
+}).catch(() => process.exit(1));
 ```
 
 ```js
 // Start from esbuild@^0.17.1
 // Multiple entryPoints in an array of object & pino transports
-const { build } = require('esbuild')
-const esbuildPluginPino = require('esbuild-plugin-pino')
+const { build } = require("esbuild");
+const esbuildPluginPino = require("esbuild-plugin-pino");
 
 build({
   entryPoints: [
     {
-      in: './test/fixtures/first.js',
-      out: 'first'
+      in: "./test/fixtures/first.js",
+      out: "first",
     },
     {
-      in: './test/fixtures/second.js',
-      out: 'abc/cde/second'
-    }
+      in: "./test/fixtures/second.js",
+      out: "abc/cde/second",
+    },
   ],
-  outdir: 'dist',
-  plugins: [esbuildPluginPino({ transports: ['pino-pretty', 'pino-loki'] })],
-}).catch(() => process.exit(1))
+  outdir: "dist",
+  plugins: [esbuildPluginPino({ transports: ["pino-pretty", "pino-loki"] })],
+}).catch(() => process.exit(1));
 ```
 
 ## Deploy to production
