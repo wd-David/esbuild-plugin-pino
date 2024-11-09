@@ -20,7 +20,7 @@ describe("Test esbuildPluginPino", () => {
     rmSync(distFolder, { recursive: true, force: true })
   })
   it("Two entrypoints with nested file", async () => {
-    expect.assertions(13)
+    expect.assertions(12)
 
     // Execute build script
     // node test/buildScripts/buildJS.js
@@ -36,9 +36,6 @@ describe("Test esbuildPluginPino", () => {
     const secondFile = nestedFiles.find((e) => e.startsWith("second"))
     const threadStream = rootFiles.find((e) => e.startsWith("thread-stream"))
     const pinoWorker = rootFiles.find((e) => e.startsWith("pino-worker"))
-    const pinoPipelineWorker = rootFiles.find((e) =>
-      e.startsWith("pino-pipeline-worker"),
-    )
     const pinoFile = rootFiles.find((e) => e.startsWith("pino-file"))
     const pinoPretty = rootFiles.find((e) => e.startsWith("pino-pretty"))
 
@@ -47,7 +44,6 @@ describe("Test esbuildPluginPino", () => {
     expect(secondFile).toBeTruthy()
     expect(threadStream).toBeTruthy()
     expect(pinoWorker).toBeTruthy()
-    expect(pinoPipelineWorker).toBeTruthy()
     expect(pinoFile).toBeTruthy()
     expect(pinoPretty).toBeTruthy()
 
@@ -56,7 +52,7 @@ describe("Test esbuildPluginPino", () => {
       resolve(distFolder, firstFile as string),
       "utf-8",
     )
-    const overrides = `globalThis.__bundlerPathsOverrides = { ...globalThis.__bundlerPathsOverrides || {}, "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.js"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.js"), "pino/file": pinoBundlerAbsolutePath("./pino-file.js"), "pino-pipeline-worker": pinoBundlerAbsolutePath("./pino-pipeline-worker.js"), "pino-pretty": pinoBundlerAbsolutePath("./pino-pretty.js") };`
+    const overrides = `globalThis.__bundlerPathsOverrides = { ...globalThis.__bundlerPathsOverrides || {}, "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.js"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.js"), "pino/file": pinoBundlerAbsolutePath("./pino-file.js"), "pino-pretty": pinoBundlerAbsolutePath("./pino-pretty.js") };`
     expect(firstContent.includes(functionDeclaration)).toBeTruthy()
     expect(firstContent.includes(overrides)).toBeTruthy()
 
@@ -79,7 +75,7 @@ describe("Test esbuildPluginPino", () => {
     expect(stdout2).toEqual(expect.stringMatching(/This is second/))
   })
   it("Two entrypoints with nested file in array of objects", async () => {
-    expect.assertions(13)
+    expect.assertions(12)
 
     // Execute build script
     // npx tsx test/buildScripts/arrayOfObjects.js
@@ -95,9 +91,6 @@ describe("Test esbuildPluginPino", () => {
     const secondFile = nestedFiles.find((e) => e.startsWith("second"))
     const threadStream = rootFiles.find((e) => e.startsWith("thread-stream"))
     const pinoWorker = rootFiles.find((e) => e.startsWith("pino-worker"))
-    const pinoPipelineWorker = rootFiles.find((e) =>
-      e.startsWith("pino-pipeline-worker"),
-    )
     const pinoFile = rootFiles.find((e) => e.startsWith("pino-file"))
     const pinoPretty = rootFiles.find((e) => e.startsWith("pino-pretty"))
 
@@ -106,7 +99,6 @@ describe("Test esbuildPluginPino", () => {
     expect(secondFile).toBeTruthy()
     expect(threadStream).toBeTruthy()
     expect(pinoWorker).toBeTruthy()
-    expect(pinoPipelineWorker).toBeTruthy()
     expect(pinoFile).toBeTruthy()
     expect(pinoPretty).toBeTruthy()
 
@@ -115,7 +107,7 @@ describe("Test esbuildPluginPino", () => {
       resolve(distFolder, firstFile as string),
       "utf-8",
     )
-    const overrides = `globalThis.__bundlerPathsOverrides = { ...globalThis.__bundlerPathsOverrides || {}, "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.js"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.js"), "pino/file": pinoBundlerAbsolutePath("./pino-file.js"), "pino-pipeline-worker": pinoBundlerAbsolutePath("./pino-pipeline-worker.js"), "pino-pretty": pinoBundlerAbsolutePath("./pino-pretty.js") };`
+    const overrides = `globalThis.__bundlerPathsOverrides = { ...globalThis.__bundlerPathsOverrides || {}, "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.js"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.js"), "pino/file": pinoBundlerAbsolutePath("./pino-file.js"), "pino-pretty": pinoBundlerAbsolutePath("./pino-pretty.js") };`
     expect(firstContent.includes(functionDeclaration)).toBeTruthy()
     expect(firstContent.includes(overrides)).toBeTruthy()
 
@@ -138,7 +130,7 @@ describe("Test esbuildPluginPino", () => {
     expect(stdout2).toEqual(expect.stringMatching(/This is second/))
   })
   it("Multiple pino transports with TypeScript", async () => {
-    expect.assertions(10)
+    expect.assertions(9)
 
     // Execute build script
     // npx tsx test/buildScripts/buildTS.ts
@@ -149,9 +141,6 @@ describe("Test esbuildPluginPino", () => {
     const thirdFile = rootFiles.find((e) => e.startsWith("third"))
     const threadStream = rootFiles.find((e) => e.startsWith("thread-stream"))
     const pinoWorker = rootFiles.find((e) => e.startsWith("pino-worker"))
-    const pinoPipelineWorker = rootFiles.find((e) =>
-      e.startsWith("pino-pipeline-worker"),
-    )
     const pinoFile = rootFiles.find((e) => e.startsWith("pino-file"))
     const pinoPretty = rootFiles.find((e) => e.startsWith("pino-pretty"))
     const pinoLoki = rootFiles.find((e) => e.startsWith("pino-loki"))
@@ -160,7 +149,6 @@ describe("Test esbuildPluginPino", () => {
     expect(thirdFile).toBeTruthy()
     expect(threadStream).toBeTruthy()
     expect(pinoWorker).toBeTruthy()
-    expect(pinoPipelineWorker).toBeTruthy()
     expect(pinoFile).toBeTruthy()
     expect(pinoPretty).toBeTruthy()
     expect(pinoLoki).toBeTruthy()
@@ -170,7 +158,7 @@ describe("Test esbuildPluginPino", () => {
       resolve(distFolder, thirdFile as string),
       "utf-8",
     )
-    const overrides = `globalThis.__bundlerPathsOverrides = { ...globalThis.__bundlerPathsOverrides || {}, "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.js"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.js"), "pino/file": pinoBundlerAbsolutePath("./pino-file.js"), "pino-pipeline-worker": pinoBundlerAbsolutePath("./pino-pipeline-worker.js"), "pino-loki": pinoBundlerAbsolutePath("./pino-loki.js"), "pino-pretty": pinoBundlerAbsolutePath("./pino-pretty.js") };`
+    const overrides = `globalThis.__bundlerPathsOverrides = { ...globalThis.__bundlerPathsOverrides || {}, "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.js"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.js"), "pino/file": pinoBundlerAbsolutePath("./pino-file.js"), "pino-loki": pinoBundlerAbsolutePath("./pino-loki.js"), "pino-pretty": pinoBundlerAbsolutePath("./pino-pretty.js") };`
     expect(thirdContent.includes(functionDeclaration)).toBeTruthy()
     expect(thirdContent.includes(overrides)).toBeTruthy()
 
