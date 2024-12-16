@@ -38,10 +38,10 @@
   ],
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@types/node": "22.10.1",
+    "@types/node": "22.10.2",
     "esbuild": "0.24.0",
     "execa": "9.5.2",
-    "nodemon": "3.1.7",
+    "nodemon": "3.1.9",
     "pino": "9.5.0",
     "pino-loki": "2.4.0",
     "pino-pretty": "12.1.0",
