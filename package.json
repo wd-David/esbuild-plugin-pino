@@ -39,7 +39,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/node": "22.10.2",
-    "esbuild": "0.24.0",
+    "esbuild": "0.24.2",
     "execa": "9.5.2",
     "nodemon": "3.1.9",
     "pino": "9.5.0",
@@ -53,6 +53,6 @@
     "vitest": "2.1.8"
   },
   "peerDependencies": {
-    "esbuild": ">=0.17.1 <=0.24.0"
+    "esbuild": ">=0.17.1 <=0.24.2"
   }
 }
