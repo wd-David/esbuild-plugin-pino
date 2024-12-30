@@ -44,7 +44,7 @@
     "nodemon": "3.1.9",
     "pino": "9.6.0",
     "pino-loki": "2.4.0",
-    "pino-pretty": "12.1.0",
+    "pino-pretty": "13.0.0",
     "pkgroll": "2.6.0",
     "standard-version": "9.5.0",
     "thread-stream": "3.1.0",
