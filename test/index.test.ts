@@ -76,6 +76,9 @@ describe("Test esbuildPluginPino", () => {
   });
   it(
     "Two entrypoints with nested file in array of objects",
+    {
+      timeout: 30000,
+    },
     async () => {
       expect.assertions(12);
 
@@ -132,9 +135,6 @@ describe("Test esbuildPluginPino", () => {
         resolve(secondDistFilePath),
       ]);
       expect(stdout2).toEqual(expect.stringMatching(/This is second/));
-    },
-    {
-      timeout: 30000,
     },
   );
   it("Multiple pino transports with TypeScript", async () => {
