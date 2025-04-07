@@ -38,7 +38,7 @@
   ],
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@types/node": "22.13.14",
+    "@types/node": "22.14.0",
     "esbuild": "0.25.2",
     "execa": "9.5.2",
     "nodemon": "3.1.9",
@@ -49,8 +49,8 @@
     "standard-version": "9.5.0",
     "thread-stream": "3.1.0",
     "tsx": "4.19.3",
-    "typescript": "5.8.2",
-    "vitest": "3.0.9"
+    "typescript": "5.8.3",
+    "vitest": "3.1.1"
   },
   "peerDependencies": {
     "esbuild": ">=0.25.0 <=0.25.2"
