@@ -38,7 +38,7 @@
   ],
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@types/node": "22.14.0",
+    "@types/node": "22.14.1",
     "esbuild": "0.25.2",
     "execa": "9.5.2",
     "nodemon": "3.1.9",
