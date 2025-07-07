@@ -37,7 +37,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.0.0",
     "@types/node": "22.16.0",
     "esbuild": "0.25.5",
     "execa": "9.6.0",
