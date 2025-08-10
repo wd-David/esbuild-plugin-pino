@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/davipon/esbuild-plugin-pino/compare/v2.2.2...v2.3.0) (2025-08-10)
+
+
+### 🐛 Bug Fixes
+
+* remove process.cwd and improve absolute path handling ([#241](https://github.com/davipon/esbuild-plugin-pino/issues/241)) ([33274ab](https://github.com/davipon/esbuild-plugin-pino/commit/33274ab15cf2fb633fe9bcb45f5a3a5526551c91))
+
+
+### ✅ Testing
+
+* add test for outExtension configuration in build scripts ([#243](https://github.com/davipon/esbuild-plugin-pino/issues/243)) ([1c74ca8](https://github.com/davipon/esbuild-plugin-pino/commit/1c74ca811fcdc3c5d4cd3050316f1ed62fa89130))
+
+
+### 🚚 Chores
+
+* add pino and thread-stream as peer dependencies, update README for Yarn PnP compatibility ([#242](https://github.com/davipon/esbuild-plugin-pino/issues/242)) ([280ae8c](https://github.com/davipon/esbuild-plugin-pino/commit/280ae8c2f908cfd81c2548736ab020a0676cdba0))
+* **deps:** update all major dependencies ([#234](https://github.com/davipon/esbuild-plugin-pino/issues/234)) ([54e2eeb](https://github.com/davipon/esbuild-plugin-pino/commit/54e2eebd5aac4e9c1797065b5458d29c0f9f56d8))
+* **deps:** update all non-major dependencies ([#220](https://github.com/davipon/esbuild-plugin-pino/issues/220)) ([6f6bb85](https://github.com/davipon/esbuild-plugin-pino/commit/6f6bb858a4bfed24a0a80dd81c85efca18fa60d5))
+* **deps:** update all non-major dependencies ([#222](https://github.com/davipon/esbuild-plugin-pino/issues/222)) ([d242379](https://github.com/davipon/esbuild-plugin-pino/commit/d2423794b267e1882b60f93d616c05dbb3723b1f))
+* **deps:** update all non-major dependencies ([#223](https://github.com/davipon/esbuild-plugin-pino/issues/223)) ([bfc2808](https://github.com/davipon/esbuild-plugin-pino/commit/bfc28089eb5d0d1fa1b67034aad2fba82d6941e9))
+* **deps:** update all non-major dependencies ([#224](https://github.com/davipon/esbuild-plugin-pino/issues/224)) ([f888413](https://github.com/davipon/esbuild-plugin-pino/commit/f888413b5123d68327688dab535b665afa83da10))
+* **deps:** update all non-major dependencies ([#226](https://github.com/davipon/esbuild-plugin-pino/issues/226)) ([8bda1fc](https://github.com/davipon/esbuild-plugin-pino/commit/8bda1fc3bba5ca5d82db8286897b6bc868267a1b))
+* **deps:** update all non-major dependencies ([#227](https://github.com/davipon/esbuild-plugin-pino/issues/227)) ([14b4700](https://github.com/davipon/esbuild-plugin-pino/commit/14b4700b79b4f5cca6da17a737869806edfbc36b))
+* **deps:** update all non-major dependencies ([#228](https://github.com/davipon/esbuild-plugin-pino/issues/228)) ([392e2b1](https://github.com/davipon/esbuild-plugin-pino/commit/392e2b13819c4dc8e9cba51d0d85b7861799f05c))
+* **deps:** update all non-major dependencies ([#229](https://github.com/davipon/esbuild-plugin-pino/issues/229)) ([f9d1cb5](https://github.com/davipon/esbuild-plugin-pino/commit/f9d1cb5b76c9c7d44e18bf77d0913c8b241fdaa5))
+* **deps:** update all non-major dependencies ([#230](https://github.com/davipon/esbuild-plugin-pino/issues/230)) ([60c7f60](https://github.com/davipon/esbuild-plugin-pino/commit/60c7f600788bb9c426c4a5d3954e7f455be23afb))
+* **deps:** update all non-major dependencies ([#231](https://github.com/davipon/esbuild-plugin-pino/issues/231)) ([18ae336](https://github.com/davipon/esbuild-plugin-pino/commit/18ae33631bcb9e0a99276cac58a91509596f5f4e))
+* **deps:** update all non-major dependencies ([#232](https://github.com/davipon/esbuild-plugin-pino/issues/232)) ([4c432ac](https://github.com/davipon/esbuild-plugin-pino/commit/4c432ac198385161c0d2d22a5a839105d196d10d))
+* **deps:** update all non-major dependencies ([#233](https://github.com/davipon/esbuild-plugin-pino/issues/233)) ([3fccdb5](https://github.com/davipon/esbuild-plugin-pino/commit/3fccdb55b75dec8faf35e1276c72d6e5a300393f))
+* **deps:** update all non-major dependencies ([#237](https://github.com/davipon/esbuild-plugin-pino/issues/237)) ([f00d74e](https://github.com/davipon/esbuild-plugin-pino/commit/f00d74e67b69e87bc4248ca6d6857b5a141ecd18))
+* **deps:** update all non-major dependencies ([#238](https://github.com/davipon/esbuild-plugin-pino/issues/238)) ([6c8af23](https://github.com/davipon/esbuild-plugin-pino/commit/6c8af23e5c5b2106b5a456e2bbf7cb83c851b849))
+* **deps:** update all non-major dependencies ([#240](https://github.com/davipon/esbuild-plugin-pino/issues/240)) ([4cc7ffe](https://github.com/davipon/esbuild-plugin-pino/commit/4cc7ffeaad36a3b661bbd48edfbbba49107f0416))
+* **deps:** update dependency @types/node to v22.13.8 ([#219](https://github.com/davipon/esbuild-plugin-pino/issues/219)) ([4b5ab71](https://github.com/davipon/esbuild-plugin-pino/commit/4b5ab71eec24009483ec8a11a51f740082d5d49b))
+* **deps:** update dependency @types/node to v22.14.1 ([#225](https://github.com/davipon/esbuild-plugin-pino/issues/225)) ([fae6da8](https://github.com/davipon/esbuild-plugin-pino/commit/fae6da8c8ac8171db3b435d97f9c84070f0f8559))
+* **deps:** update dependency @types/node to v22.15.34 ([#235](https://github.com/davipon/esbuild-plugin-pino/issues/235)) ([9b97c37](https://github.com/davipon/esbuild-plugin-pino/commit/9b97c37d740d51fa25c77ecbd214d4b27f04de38))
+* **deps:** update dependency @types/node to v22.16.0 ([#236](https://github.com/davipon/esbuild-plugin-pino/issues/236)) ([d085ef5](https://github.com/davipon/esbuild-plugin-pino/commit/d085ef527d0b780bd67442da8edd49428e49bbdd))
+* **deps:** update dependency esbuild to v0.25.1 ([#221](https://github.com/davipon/esbuild-plugin-pino/issues/221)) ([cab44f4](https://github.com/davipon/esbuild-plugin-pino/commit/cab44f4929910b989548b5bd15fe131817c0c370))
+* **deps:** update dependency pkgroll to v2.14.5 ([#239](https://github.com/davipon/esbuild-plugin-pino/issues/239)) ([a53b672](https://github.com/davipon/esbuild-plugin-pino/commit/a53b6728d234439e260bfbbf7254ce5ae04b4cc7))
+* update biome and package dependencies, refactor error handling in esbuildPluginPino ([#244](https://github.com/davipon/esbuild-plugin-pino/issues/244)) ([f93ac3d](https://github.com/davipon/esbuild-plugin-pino/commit/f93ac3dd0c0e6bed7be3e59531f4112515a78d0f))
+
 ### [2.2.2](https://github.com/davipon/esbuild-plugin-pino/compare/v2.2.1...v2.2.2) (2025-03-01)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-pino",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "An esbuild plugin to generate extra pino files for bundling",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
