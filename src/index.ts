@@ -2,10 +2,7 @@ import { readFile, stat } from "node:fs/promises"
 import path from "node:path"
 import type { BuildOptions, Plugin } from "esbuild"
 
-type NewEntrypointsType = Extract<
-  BuildOptions["entryPoints"],
-  { in: string; out: string }[]
->
+type NewEntrypointsType = { in: string; out: string }[]
 
 /**
  * Check if entrypoints is an array of strings
@@ -183,26 +180,29 @@ export default function esbuildPluginPino({
 
         const contents = await readFile(args.path, "utf8")
 
-        let absoluteOutputPath = ""
         const { outdir = "dist" } = currentBuild.initialOptions
+
+        // Calculate absolute output directory once
+        let absoluteOutputDir = ""
         if (path.isAbsolute(outdir)) {
-          absoluteOutputPath = outdir.replace(/\\/g, "\\\\")
+          absoluteOutputDir = outdir
         } else {
-          const workingDir = currentBuild.initialOptions.absWorkingDir
-            ? `"${currentBuild.initialOptions.absWorkingDir.replace(/\\/g, "\\\\")}"`
-            : "process.cwd()"
-          absoluteOutputPath = `\${${workingDir}}\${require('path').sep}${
-            currentBuild.initialOptions.outdir || "dist"
-          }`
+          const workingDir =
+            currentBuild.initialOptions.absWorkingDir || process.cwd()
+          absoluteOutputDir = path.resolve(workingDir, outdir)
         }
 
         const functionDeclaration = `
           function pinoBundlerAbsolutePath(p) {
             try {
-              return require('path').join(\`${absoluteOutputPath}\`.replace(/\\\\/g, '/'), p)
+              const path = require('path');
+              // Always resolve to the absolute output directory where worker files are located
+              const outputDir = "${absoluteOutputDir.replace(/\\/g, "\\\\")}";
+              return path.resolve(outputDir, p.replace(/^\\.\\//, ''));
             } catch(e) {
+              // ESM fallback: resolve relative to this bundle's location  
               const f = new Function('p', 'return new URL(p, import.meta.url).pathname');
-              return f(p)
+              return f(p);
             }
           }
         `
