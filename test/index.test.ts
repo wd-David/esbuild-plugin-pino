@@ -1,5 +1,5 @@
 import { execSync } from "node:child_process"
-import { mkdtempSync, readFileSync, readdirSync, rmSync } from "node:fs"
+import { mkdtempSync, readdirSync, readFileSync, rmSync } from "node:fs"
 import { tmpdir } from "node:os"
 import { join, resolve } from "node:path"
 import { execa } from "execa"
@@ -228,7 +228,7 @@ describe("Test esbuildPluginPino", () => {
       const currentDir = readdirSync(process.cwd(), { withFileTypes: true })[0]
         ? process.cwd()
         : null
-      const expectedDir = readdirSync(tempDir, { withFileTypes: true })[0]
+      const _expectedDir = readdirSync(tempDir, { withFileTypes: true })[0]
         ? tempDir
         : null
       expect(currentDir).not.toBe(originalCwd)
@@ -306,9 +306,7 @@ describe("Test esbuildPluginPino", () => {
 
     // Import the build script to get the output directory details
     delete require.cache[require.resolve(buildAbsWorkingDirScriptPath)]
-    const { explicitWorkingDir, relativeOutdir, finalOutdir } = require(
-      buildAbsWorkingDirScriptPath,
-    )
+    const { finalOutdir } = require(buildAbsWorkingDirScriptPath)
 
     try {
       // Find all files in the output directory
