@@ -51,6 +51,17 @@
     "vitest": "3.2.4"
   },
   "peerDependencies": {
-    "esbuild": ">=0.25.0 <=0.25.8"
+    "esbuild": ">=0.25.0 <=0.25.8",
+    "pino": ">=7.0.0",
+    "pino-pretty": "*",
+    "thread-stream": "*"
+  },
+  "peerDependenciesMeta": {
+    "pino-pretty": {
+      "optional": true
+    },
+    "thread-stream": {
+      "optional": true
+    }
   }
 }

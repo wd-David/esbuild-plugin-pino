@@ -14,6 +14,21 @@ An esbuild plugin to generate extra pino files for bundling
 npm install esbuild-plugin-pino
 ```
 
+## Yarn PnP Compatibility
+
+If you're using Yarn with Plug'n'Play (PnP), you may need to add package extensions to your `.yarnrc.yml` file to ensure proper dependency resolution:
+
+```yaml
+packageExtensions:
+  "esbuild-plugin-pino@*":
+    dependencies:
+      "pino": "*"
+      "pino-pretty": "*"
+      "thread-stream": "*"
+```
+
+This ensures that the plugin can properly locate and bundle the required Pino dependencies in a PnP environment.
+
 ## Description
 
 This plugin allows to use of pino v7 ~ v9 with esbuild generated bundle files.
