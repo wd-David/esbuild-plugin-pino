@@ -19,6 +19,10 @@ const buildAbsWorkingDirScriptPath = resolve(
   __dirname,
   "buildScripts/buildAbsWorkingDir.js",
 )
+const buildOutExtensionScriptPath = resolve(
+  __dirname,
+  "buildScripts/buildOutExtension.js",
+)
 const distFolder = "test/dist"
 
 const functionDeclaration = "function pinoBundlerAbsolutePath(p)"
@@ -340,5 +344,61 @@ describe("Test esbuildPluginPino", () => {
       // Clean up the output directory
       rmSync(finalOutdir, { recursive: true, force: true })
     }
+  })
+
+  it("Respects outExtension configuration", async () => {
+    expect.assertions(12)
+
+    // Execute build script
+    execSync(`node ${resolve(buildOutExtensionScriptPath)}`)
+
+    // Find all files in the folder - should have .cjs extension now
+    const rootFiles = readdirSync(distFolder).filter((e) => e.endsWith(".cjs"))
+    const nestedFiles = readdirSync(resolve(distFolder, "abc/cde")).filter(
+      (e) => e.endsWith(".cjs"),
+    )
+
+    const firstFile = rootFiles.find((e) => e.startsWith("first"))
+    const secondFile = nestedFiles.find((e) => e.startsWith("second"))
+    const threadStream = rootFiles.find((e) => e.startsWith("thread-stream"))
+    const pinoWorker = rootFiles.find((e) => e.startsWith("pino-worker"))
+    const pinoFile = rootFiles.find((e) => e.startsWith("pino-file"))
+    const pinoPretty = rootFiles.find((e) => e.startsWith("pino-pretty"))
+
+    // Check that all required files have been generated with .cjs extension
+    expect(firstFile).toBeTruthy()
+    expect(secondFile).toBeTruthy()
+    expect(threadStream).toBeTruthy()
+    expect(pinoWorker).toBeTruthy()
+    expect(pinoFile).toBeTruthy()
+    expect(pinoPretty).toBeTruthy()
+
+    // Check that the root file has the right path to pino-file with .cjs extension
+    const firstContent = readFileSync(
+      resolve(distFolder, firstFile as string),
+      "utf-8",
+    )
+    // The key difference: overrides should now reference .cjs files, not .js files
+    const overrides = `globalThis.__bundlerPathsOverrides = { ...globalThis.__bundlerPathsOverrides || {}, "thread-stream-worker": pinoBundlerAbsolutePath("./thread-stream-worker.cjs"), "pino-worker": pinoBundlerAbsolutePath("./pino-worker.cjs"), "pino/file": pinoBundlerAbsolutePath("./pino-file.cjs"), "pino-pretty": pinoBundlerAbsolutePath("./pino-pretty.cjs") };`
+    expect(firstContent.includes(functionDeclaration)).toBeTruthy()
+    expect(firstContent.includes(overrides)).toBeTruthy()
+
+    // Check the log output
+    const { stdout } = await execa(process.argv[0], [
+      resolve(distFolder, firstFile as string),
+    ])
+    expect(stdout).toEqual(expect.stringMatching(/This is first/))
+
+    // Check that the nested file has the right path to pino-file with .cjs extension
+    const secondDistFilePath = resolve(distFolder, `abc/cde/${secondFile}`)
+    const secondContent = readFileSync(secondDistFilePath, "utf-8")
+    expect(secondContent.includes(functionDeclaration)).toBeTruthy()
+    expect(secondContent.includes(overrides)).toBeTruthy()
+
+    // Check the log output
+    const { stdout: stdout2 } = await execa(process.argv[0], [
+      resolve(secondDistFilePath),
+    ])
+    expect(stdout2).toEqual(expect.stringMatching(/This is second/))
   })
 })
