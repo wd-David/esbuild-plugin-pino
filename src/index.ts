@@ -131,7 +131,7 @@ export default function esbuildPluginPino({
         const pinoPipelineWorker = path.join(pino, "lib/worker-pipeline.js")
         await stat(pinoPipelineWorker)
         customEntrypoints["pino-pipeline-worker"] = pinoPipelineWorker
-      } catch (err) {
+      } catch (_err) {
         // Ignored
       }
 

@@ -1,8 +1,8 @@
 #!/usr/bin/node
 const { build } = require("esbuild")
 const esbuildPluginPino = require("../../dist")
-const { mkdtempSync, rmSync, writeFileSync } = require("node:fs")
-const { join, resolve } = require("node:path")
+const { mkdtempSync, writeFileSync } = require("node:fs")
+const { join } = require("node:path")
 const { tmpdir } = require("node:os")
 
 // Create a temporary absolute path for output
