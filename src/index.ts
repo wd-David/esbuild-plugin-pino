@@ -182,22 +182,15 @@ export default function esbuildPluginPino({
 
         const { outdir = "dist" } = currentBuild.initialOptions
 
-        // Calculate absolute output directory once
-        let absoluteOutputDir = ""
+        let functionDeclaration = ""
         if (path.isAbsolute(outdir)) {
-          absoluteOutputDir = outdir
-        } else {
-          const workingDir =
-            currentBuild.initialOptions.absWorkingDir || process.cwd()
-          absoluteOutputDir = path.resolve(workingDir, outdir)
-        }
-
-        const functionDeclaration = `
+          // For absolute paths, use the current approach (build-time resolution)
+          functionDeclaration = `
           function pinoBundlerAbsolutePath(p) {
             try {
               const path = require('path');
               // Always resolve to the absolute output directory where worker files are located
-              const outputDir = "${absoluteOutputDir.replace(/\\/g, "\\\\")}";
+              const outputDir = "${outdir.replace(/\\/g, "\\\\")}";
               return path.resolve(outputDir, p.replace(/^\\.\\//, ''));
             } catch(e) {
               // ESM fallback: resolve relative to this bundle's location  
@@ -206,6 +199,28 @@ export default function esbuildPluginPino({
             }
           }
         `
+        } else {
+          // For relative paths, revert to runtime resolution (v2.2.x approach)
+          const workingDirTemplate = currentBuild.initialOptions.absWorkingDir
+            ? `"${currentBuild.initialOptions.absWorkingDir.replace(/\\/g, "\\\\")}"`
+            : "process.cwd()"
+
+          functionDeclaration = `
+          function pinoBundlerAbsolutePath(p) {
+            try {
+              const path = require('path');
+              // Runtime resolution: resolve relative to working directory at runtime
+              const workingDir = ${workingDirTemplate};
+              const outputDir = path.resolve(workingDir, "${outdir}");
+              return path.resolve(outputDir, p.replace(/^\\.\\//, ''));
+            } catch(e) {
+              // ESM fallback: resolve relative to this bundle's location  
+              const f = new Function('p', 'return new URL(p, import.meta.url).pathname');
+              return f(p);
+            }
+          }
+        `
+        }
 
         let extension = ".js"
         if (outExtension?.[".js"]) {
