@@ -107,7 +107,7 @@ function transformToNewEntryPointsType(
  *   }).catch(() => process.exit(1))
  * ```
  */
-export default function esbuildPluginPino({
+function esbuildPluginPino({
   transports = [],
 }: {
   transports: string[]
@@ -251,3 +251,5 @@ export default function esbuildPluginPino({
     },
   }
 }
+
+export = esbuildPluginPino
