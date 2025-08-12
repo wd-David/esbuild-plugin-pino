@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.1](https://github.com/davipon/esbuild-plugin-pino/compare/v2.3.0...v2.3.1) (2025-08-12)
+
+
+### 🐛 Bug Fixes
+
+* enhance path resolution in esbuildPluginPino for relative outdir handling ([#248](https://github.com/davipon/esbuild-plugin-pino/issues/248)) ([3ba006b](https://github.com/davipon/esbuild-plugin-pino/commit/3ba006b80dcd649ee083f2f9d80afbe69b6f4f5e))
+
+
+### 🚚 Chores
+
+* update build and test scripts to include fix-types.js ([#249](https://github.com/davipon/esbuild-plugin-pino/issues/249)) ([93a4e38](https://github.com/davipon/esbuild-plugin-pino/commit/93a4e38a903d4b6868e405af021d03380e322012))
+
 ## [2.3.0](https://github.com/davipon/esbuild-plugin-pino/compare/v2.2.2...v2.3.0) (2025-08-10)
 
 
