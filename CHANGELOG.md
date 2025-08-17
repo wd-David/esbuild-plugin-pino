@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.3](https://github.com/davipon/esbuild-plugin-pino/compare/v2.3.2...v2.3.3) (2025-08-17)
+
+
+### 🐛 Bug Fixes
+
+* update package.json exports and scripts for improved ESM support and add tests for named exports ([#252](https://github.com/davipon/esbuild-plugin-pino/issues/252)) ([03e1fb0](https://github.com/davipon/esbuild-plugin-pino/commit/03e1fb0047a6d52e152c2d510d1b36080e98a043))
+
 ### [2.3.2](https://github.com/davipon/esbuild-plugin-pino/compare/v2.3.1...v2.3.2) (2025-08-17)
 
 
