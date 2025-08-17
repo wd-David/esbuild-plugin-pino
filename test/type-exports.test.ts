@@ -14,8 +14,8 @@ describe("Type Export Compatibility (Issue #246)", () => {
     const dtsPath = resolve(__dirname, "../dist/index.d.ts")
     const dtsContent = readFileSync(dtsPath, "utf8")
 
-    // With ESM source, pkgroll correctly generates named default export
-    expect(dtsContent).toContain("export { esbuildPluginPino as default }")
+    // With our export fix, should generate export default pattern
+    expect(dtsContent).toContain("export default esbuildPluginPino")
 
     // Should have the function declaration
     expect(dtsContent).toContain("declare function esbuildPluginPino")
@@ -24,6 +24,20 @@ describe("Type Export Compatibility (Issue #246)", () => {
   it("ESM import works without .default workaround", async () => {
     // This is the exact code that was failing in the GitHub issue
     const { default: esbuildPluginPino } = await import("../dist/index.mjs")
+
+    // Verify the plugin function is directly callable
+    expect(typeof esbuildPluginPino).toBe("function")
+
+    // Verify it returns a valid esbuild plugin object
+    const plugin = esbuildPluginPino({ transports: [] })
+    expect(plugin).toHaveProperty("name", "pino")
+    expect(plugin).toHaveProperty("setup")
+    expect(typeof plugin.setup).toBe("function")
+  })
+
+  it("ESM named import works (issue #250 requirement)", async () => {
+    // Test the named import pattern requested in issue #250
+    const { esbuildPluginPino } = await import("../dist/index.mjs")
 
     // Verify the plugin function is directly callable
     expect(typeof esbuildPluginPino).toBe("function")
@@ -91,9 +105,9 @@ describe("Type Export Compatibility (Issue #246)", () => {
       const plugin1 = require("../dist/index.js")
       expect(typeof plugin1).toBe("function")
 
-      // With destructuring (should be same as direct)
+      // With destructuring (should work with our ESM interop fix)
       const { default: plugin2 } = require("../dist/index.js")
-      expect(plugin2).toBeUndefined() // No .default in CJS
+      expect(typeof plugin2).toBe("function") // .default now available for ESM interop
 
       // Access as property
       const pluginModule = require("../dist/index.js")
@@ -105,9 +119,17 @@ describe("Type Export Compatibility (Issue #246)", () => {
       const { default: plugin1 } = await import("../dist/index.mjs")
       expect(typeof plugin1).toBe("function")
 
+      // Named import (issue #250 requirement)
+      const { esbuildPluginPino: plugin2 } = await import("../dist/index.mjs")
+      expect(typeof plugin2).toBe("function")
+
+      // Both should be the same function
+      expect(plugin1 === plugin2).toBe(true)
+
       // Namespace import
       const pluginNamespace = await import("../dist/index.mjs")
       expect(typeof pluginNamespace.default).toBe("function")
+      expect(typeof pluginNamespace.esbuildPluginPino).toBe("function")
     })
 
     it("mixed usage patterns in same project", async () => {

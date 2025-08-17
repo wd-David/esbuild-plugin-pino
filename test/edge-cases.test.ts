@@ -100,20 +100,17 @@ describe("Edge Cases", () => {
   })
 
   describe("Export format edge cases", () => {
-    it("ESM import with named destructuring", async () => {
-      // Test that named import fails gracefully (as expected)
-      try {
-        // Use dynamic import with string literal to bypass TypeScript checking
-        const module = await import("../dist/index.mjs")
-        const { esbuildPluginPino } = module as { esbuildPluginPino?: unknown }
-        // If this succeeds, it means we have named exports (which we don't expect)
-        expect(esbuildPluginPino).toBeUndefined()
-      } catch (error) {
-        // This is expected - we only export default, not named exports
-        expect((error as Error).message).toMatch(
-          /does not provide an export named|named export/,
-        )
-      }
+    it("ESM import with named destructuring (issue #250)", async () => {
+      // Use dynamic import with string literal to bypass TypeScript checking
+      const module = await import("../dist/index.mjs")
+      const { esbuildPluginPino } = module as { esbuildPluginPino?: unknown }
+
+      // Now we DO support named exports as requested in issue #250
+      expect(typeof esbuildPluginPino).toBe("function")
+
+      // Verify it works the same as default export
+      const { default: defaultExport } = module
+      expect(esbuildPluginPino === defaultExport).toBe(true)
     })
 
     it("CommonJS destructuring works with default", () => {

@@ -42,8 +42,8 @@ describe("Build Process", () => {
     const dtsPath = resolve(cwd, "dist/index.d.ts")
     const dtsContent = readFileSync(dtsPath, "utf8")
 
-    // With ESM source, pkgroll should generate the correct default export declaration
-    expect(dtsContent).toContain("export { esbuildPluginPino as default }")
+    // With our export fix, should generate export default pattern
+    expect(dtsContent).toContain("export default esbuildPluginPino")
   }, 70000) // Increased timeout for CI
 
   it("JavaScript outputs use correct module.exports syntax", () => {
@@ -59,6 +59,6 @@ describe("Build Process", () => {
     const esmPath = resolve(cwd, "dist/index.mjs")
     const esmContent = readFileSync(esmPath, "utf8")
 
-    expect(esmContent).toContain("export { esbuildPluginPino as default }")
+    expect(esmContent).toContain("export default esbuildPluginPino")
   })
 })
