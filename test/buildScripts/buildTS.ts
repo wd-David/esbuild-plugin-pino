@@ -1,7 +1,7 @@
-import { build } from "esbuild"
-import esbuildPluginPino from "../../dist"
+import { build } from "esbuild";
+import { esbuildPluginPino } from "../../dist";
 
-const distFolder = "test/dist"
+const distFolder = "test/dist";
 
 build({
   entryPoints: ["./test/fixtures/third.ts"],
@@ -11,4 +11,4 @@ build({
   platform: "node",
   format: "cjs",
   plugins: [esbuildPluginPino({ transports: ["pino-loki", "pino-pretty"] })],
-}).catch(() => process.exit(1))
+}).catch(() => process.exit(1));
