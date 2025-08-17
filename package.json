@@ -14,11 +14,11 @@
   "bugs": "https://github.com/davipon/esbuild-plugin-pino/issues",
   "scripts": {
     "dev": "nodemon",
-    "build": "pkgroll && node fix-types.js",
+    "build": "pkgroll",
     "buildJS": "pkgroll && node test/buildScripts/buildJS.js",
     "buildTS": "pkgroll && tsx test/buildScripts/buildTS.ts",
     "buildTS2": "pkgroll && tsx test/buildScripts/arrayOfObjects.ts",
-    "test": "rm -rf dist && pkgroll && node fix-types.js && vitest run",
+    "test": "rm -rf dist && pkgroll && vitest run",
     "check": "biome check --write .",
     "release:major": "standard-version --no-verify --release-as major",
     "release:minor": "standard-version --no-verify --release-as minor",
@@ -34,8 +34,7 @@
   "author": "David Peng <davipondev@gmail.com>",
   "license": "MIT",
   "files": [
-    "dist",
-    "fix-types.js"
+    "dist"
   ],
   "devDependencies": {
     "@biomejs/biome": "^2.1.4",
