@@ -188,67 +188,79 @@ describe("Test esbuildPluginPino", () => {
     expect(stdout).toEqual(expect.stringMatching(/This is third/))
   })
 
-  it("Works with different working directory (process.cwd independence)", { timeout: 15000 }, async () => {
-    expect.assertions(3)
+  it(
+    "Works with different working directory (process.cwd independence)",
+    { timeout: 15000 },
+    async () => {
+      expect.assertions(3)
 
-    // Build from current directory
-    execSync(`node ${resolve(buildJsScriptPath)}`, {
-      cwd: resolve(__dirname, ".."),
-      stdio: "inherit",
-    })
+      // Build from current directory
+      execSync(`node ${resolve(buildJsScriptPath)}`, {
+        cwd: resolve(__dirname, ".."),
+        stdio: "inherit",
+      })
 
-    // Find the generated files
-    const rootFiles = readdirSync(distFolder).filter((e) => e.endsWith(".js"))
-    const nestedFiles = readdirSync(resolve(distFolder, "abc/cde")).filter(
-      (e) => e.endsWith(".js"),
-    )
+      // Find the generated files
+      const rootFiles = readdirSync(distFolder).filter((e) => e.endsWith(".js"))
+      const nestedFiles = readdirSync(resolve(distFolder, "abc/cde")).filter(
+        (e) => e.endsWith(".js"),
+      )
 
-    const firstFile = rootFiles.find((e) => e.startsWith("first"))
-    const secondFile = nestedFiles.find((e) => e.startsWith("second"))
+      const firstFile = rootFiles.find((e) => e.startsWith("first"))
+      const secondFile = nestedFiles.find((e) => e.startsWith("second"))
 
-    // Create a temporary directory and change to it
-    const tempDir = mkdtempSync(join(tmpdir(), "esbuild-plugin-pino-test-"))
-    const originalCwd = process.cwd()
-
-    try {
-      // Change to the temporary directory
-      process.chdir(tempDir)
-
-      // Execute bundles from the different working directory
-      // This would fail with the old process.cwd() approach
-      const { stdout: stdout1 } = await execa(process.argv[0], [
-        resolve(originalCwd, distFolder, firstFile as string),
-      ], { timeout: 10000 })
-      expect(stdout1).toEqual(expect.stringMatching(/This is first/))
+      // Create a temporary directory and change to it
+      const tempDir = mkdtempSync(join(tmpdir(), "esbuild-plugin-pino-test-"))
+      const originalCwd = process.cwd()
 
       try {
-        const { stdout: stdout2 } = await execa(process.argv[0], [
-          resolve(originalCwd, distFolder, `abc/cde/${secondFile}`),
-        ], { timeout: 8000 })
-        expect(stdout2).toEqual(expect.stringMatching(/This is second/))
-      } catch (error) {
-        // If timeout occurs with pino-pretty transport, that's expected in some environments
-        // The important part is that the bundle was created correctly with runtime resolution
-        if (error.message?.includes('timed out')) {
-          console.warn('Pino-pretty transport timed out in different working directory - this is expected')
-        } else {
-          throw error
-        }
-      }
+        // Change to the temporary directory
+        process.chdir(tempDir)
 
-      // Verify we're actually running from a different directory
-      // Use realpath to handle macOS /var vs /private/var symlink resolution
-      const currentDir = readdirSync(process.cwd(), { withFileTypes: true })[0]
-        ? process.cwd()
-        : null
-      expect(currentDir).not.toBe(originalCwd)
-      expect(currentDir !== originalCwd).toBe(true)
-    } finally {
-      // Restore original working directory
-      process.chdir(originalCwd)
-      rmSync(tempDir, { recursive: true, force: true })
-    }
-  })
+        // Execute bundles from the different working directory
+        // This would fail with the old process.cwd() approach
+        const { stdout: stdout1 } = await execa(
+          process.argv[0],
+          [resolve(originalCwd, distFolder, firstFile as string)],
+          { timeout: 10000 },
+        )
+        expect(stdout1).toEqual(expect.stringMatching(/This is first/))
+
+        try {
+          const { stdout: stdout2 } = await execa(
+            process.argv[0],
+            [resolve(originalCwd, distFolder, `abc/cde/${secondFile}`)],
+            { timeout: 8000 },
+          )
+          expect(stdout2).toEqual(expect.stringMatching(/This is second/))
+        } catch (error) {
+          // If timeout occurs with pino-pretty transport, that's expected in some environments
+          // The important part is that the bundle was created correctly with runtime resolution
+          if (error.message?.includes("timed out")) {
+            console.warn(
+              "Pino-pretty transport timed out in different working directory - this is expected",
+            )
+          } else {
+            throw error
+          }
+        }
+
+        // Verify we're actually running from a different directory
+        // Use realpath to handle macOS /var vs /private/var symlink resolution
+        const currentDir = readdirSync(process.cwd(), {
+          withFileTypes: true,
+        })[0]
+          ? process.cwd()
+          : null
+        expect(currentDir).not.toBe(originalCwd)
+        expect(currentDir !== originalCwd).toBe(true)
+      } finally {
+        // Restore original working directory
+        process.chdir(originalCwd)
+        rmSync(tempDir, { recursive: true, force: true })
+      }
+    },
+  )
 
   it("Works with absolute output path", async () => {
     expect.assertions(6)

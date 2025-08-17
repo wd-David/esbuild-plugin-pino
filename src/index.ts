@@ -107,11 +107,11 @@ function transformToNewEntryPointsType(
  *   }).catch(() => process.exit(1))
  * ```
  */
-function esbuildPluginPino({
-  transports = [],
+export default function esbuildPluginPino({
+  transports = [] as string[],
 }: {
-  transports: string[]
-}): Plugin {
+  transports?: string[]
+} = {}): Plugin {
   return {
     name: "pino",
     async setup(currentBuild) {
@@ -202,7 +202,10 @@ function esbuildPluginPino({
         } else {
           // For relative paths, revert to runtime resolution (v2.2.x approach)
           const workingDirTemplate = currentBuild.initialOptions.absWorkingDir
-            ? `"${currentBuild.initialOptions.absWorkingDir.replace(/\\/g, "\\\\")}"`
+            ? `"${currentBuild.initialOptions.absWorkingDir.replace(
+                /\\/g,
+                "\\\\",
+              )}"`
             : "process.cwd()"
 
           functionDeclaration = `
@@ -251,5 +254,3 @@ function esbuildPluginPino({
     },
   }
 }
-
-export = esbuildPluginPino
