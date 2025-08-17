@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.2](https://github.com/davipon/esbuild-plugin-pino/compare/v2.3.1...v2.3.2) (2025-08-17)
+
+
+### 🔨 Build System
+
+* remove fix-types.js script and update build/test scripts for TypeScript declaration handling ([#251](https://github.com/davipon/esbuild-plugin-pino/issues/251)) ([6931fed](https://github.com/davipon/esbuild-plugin-pino/commit/6931fedbabde68b6f5279816f0aee2dae71276cb))
+
 ### [2.3.1](https://github.com/davipon/esbuild-plugin-pino/compare/v2.3.0...v2.3.1) (2025-08-12)
 
 
