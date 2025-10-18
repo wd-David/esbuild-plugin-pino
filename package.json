@@ -47,7 +47,7 @@
     "esbuild": "0.25.10",
     "execa": "9.6.0",
     "nodemon": "3.1.10",
-    "pino": "9.13.1",
+    "pino": "10.1.0",
     "pino-loki": "2.6.0",
     "pino-pretty": "13.1.2",
     "pkgroll": "2.18.1",
