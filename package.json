@@ -43,14 +43,14 @@
   ],
   "devDependencies": {
     "@biomejs/biome": "^2.1.4",
-    "@types/node": "24.7.2",
-    "esbuild": "0.25.10",
+    "@types/node": "24.8.1",
+    "esbuild": "0.25.11",
     "execa": "9.6.0",
     "nodemon": "3.1.10",
-    "pino": "9.13.1",
+    "pino": "9.14.0",
     "pino-loki": "2.6.0",
     "pino-pretty": "13.1.2",
-    "pkgroll": "2.18.1",
+    "pkgroll": "2.20.0",
     "standard-version": "9.5.0",
     "thread-stream": "3.1.0",
     "tsx": "4.20.6",
@@ -58,7 +58,7 @@
     "vitest": "3.2.4"
   },
   "peerDependencies": {
-    "esbuild": ">=0.25.0 <=0.25.10",
+    "esbuild": ">=0.25.0 <=0.25.11",
     "pino": ">=7.0.0",
     "pino-pretty": "*",
     "thread-stream": "*"
