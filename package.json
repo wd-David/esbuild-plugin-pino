@@ -50,7 +50,7 @@
     "pino": "9.14.0",
     "pino-loki": "2.6.0",
     "pino-pretty": "13.1.2",
-    "pkgroll": "2.20.1",
+    "pkgroll": "2.21.3",
     "standard-version": "9.5.0",
     "thread-stream": "3.1.0",
     "tsx": "4.20.6",
