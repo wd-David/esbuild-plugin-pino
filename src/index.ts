@@ -1,6 +1,14 @@
 import { readFile, stat } from "node:fs/promises"
 import path from "node:path"
+import { createRequire } from "node:module"
 import type { BuildOptions, Plugin } from "esbuild"
+
+// Create a require function that works in both CJS and ESM
+const requireFunc = typeof require !== "undefined" 
+  ? require 
+  : createRequire(import.meta.url)
+
+const hybridResolve = requireFunc.resolve.bind(requireFunc)
 
 type NewEntrypointsType = { in: string; out: string }[]
 
@@ -115,8 +123,8 @@ export default function esbuildPluginPino({
   return {
     name: "pino",
     async setup(currentBuild) {
-      const pino = path.dirname(require.resolve("pino"))
-      const threadStream = path.dirname(require.resolve("thread-stream"))
+      const pino = path.dirname(hybridResolve("pino"))
+      const threadStream = path.dirname(hybridResolve("thread-stream"))
 
       const { entryPoints, outbase, outExtension } = currentBuild.initialOptions
       /** Pino and worker */
@@ -137,7 +145,7 @@ export default function esbuildPluginPino({
 
       /** Transports */
       const transportsEntrypoints: Record<string, string> = Object.fromEntries(
-        transports.map((transport) => [transport, require.resolve(transport)]),
+        transports.map((transport) => [transport, hybridResolve(transport)]),
       )
 
       let newEntrypoints: NewEntrypointsType = []
@@ -182,44 +190,46 @@ export default function esbuildPluginPino({
 
         const { outdir = "dist" } = currentBuild.initialOptions
 
+        // Create a clean path resolution function that works in both CJS and ESM
         let functionDeclaration = ""
+
         if (path.isAbsolute(outdir)) {
-          // For absolute paths, use the current approach (build-time resolution)
+          // For absolute paths, use the build-time resolved path
           functionDeclaration = `
           function pinoBundlerAbsolutePath(p) {
+            const outputDir = "${outdir.replace(/\\/g, "\\\\")}"
+            const normalizedPath = p.replace(/^\\.\\//, '');
+            
             try {
               const path = require('path');
-              // Always resolve to the absolute output directory where worker files are located
-              const outputDir = "${outdir.replace(/\\/g, "\\\\")}";
-              return path.resolve(outputDir, p.replace(/^\\.\\//, ''));
+              return path.join(outputDir, normalizedPath);
             } catch(e) {
-              // ESM fallback: resolve relative to this bundle's location  
-              const f = new Function('p', 'return new URL(p, import.meta.url).pathname');
-              return f(p);
+              // Simple join for ESM or when path module not available
+              return outputDir + '/' + normalizedPath;
             }
           }
         `
         } else {
-          // For relative paths, revert to runtime resolution (v2.2.x approach)
+          // For relative paths, use runtime resolution
           const workingDirTemplate = currentBuild.initialOptions.absWorkingDir
-            ? `"${currentBuild.initialOptions.absWorkingDir.replace(
-                /\\/g,
-                "\\\\",
-              )}"`
+            ? `"${currentBuild.initialOptions.absWorkingDir.replace(/\\/g, "\\\\")}"`
             : "process.cwd()"
 
           functionDeclaration = `
           function pinoBundlerAbsolutePath(p) {
+            const normalizedPath = p.replace(/^\\.\\//, '');
+            const workingDir = ${workingDirTemplate};
+            
             try {
               const path = require('path');
-              // Runtime resolution: resolve relative to working directory at runtime
-              const workingDir = ${workingDirTemplate};
               const outputDir = path.resolve(workingDir, "${outdir}");
-              return path.resolve(outputDir, p.replace(/^\\.\\//, ''));
+              return path.resolve(outputDir, normalizedPath);
             } catch(e) {
-              // ESM fallback: resolve relative to this bundle's location  
-              const f = new Function('p', 'return new URL(p, import.meta.url).pathname');
-              return f(p);
+              // Simple join for ESM or when path module not available
+              return [workingDir, "${outdir}", normalizedPath]
+                .filter(Boolean)
+                .join('/')
+                .replace(/\\/+/g, '/');
             }
           }
         `
@@ -240,6 +250,8 @@ export default function esbuildPluginPino({
               }': pinoBundlerAbsolutePath('./${id}${extension}')`,
           )
           .join(",")
+
+        // No import.meta polyfill needed - handled differently
 
         const globalThisDeclaration = `
           globalThis.__bundlerPathsOverrides = { ...(globalThis.__bundlerPathsOverrides || {}), ${pinoOverrides}}
