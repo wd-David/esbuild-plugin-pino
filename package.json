@@ -44,7 +44,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.1.4",
     "@types/node": "24.13.1",
-    "esbuild": "0.28.0",
+    "esbuild": "0.28.1",
     "execa": "9.6.1",
     "nodemon": "3.1.14",
     "pino": "9.14.0",
@@ -58,7 +58,7 @@
     "vitest": "3.2.4"
   },
   "peerDependencies": {
-    "esbuild": ">=0.25.0 <=0.28.0",
+    "esbuild": ">=0.28.1 <=0.28.1",
     "pino": ">=7.0.0",
     "pino-pretty": "*",
     "thread-stream": "*"
